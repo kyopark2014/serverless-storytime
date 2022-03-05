@@ -1,4 +1,4 @@
-# Module 2. API Gateway 구현
+# API Gateway 구현
  
 Amazon API Gateway는 REST full의 Endpoint로 활용할 수 있으며, Lambda를 연결할때 유용합니다.
 
