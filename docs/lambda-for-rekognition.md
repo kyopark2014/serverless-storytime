@@ -72,7 +72,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
                 "dynamodb:UpdateItem",
                 "dynamodb:DeleteItem"
             ],
-            "Resource": "arn:aws:dynamodb:ap-northeast-2:677146750822:table/*"
+            "Resource": "arn:aws:dynamodb:ap-northeast-2:****:table/*"
         }
 ```        
 
