@@ -10,7 +10,7 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 2) [DynamoDB] - [Tables] - [Create table]에서 아래와 같이 Partition key와 Sort key를 정의한다. 여기서에서는 Unique ID인 uuid를 Partition key로 사용하고, Sort key로는 item 생성시간인 timestamp를 사용하고, 이후 아래로 스크롤하여 [Create Table]을 선택한다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156787178-eb380f17-800b-43f3-84d4-1b8469245ae2.png)
+![image](https://user-images.githubusercontent.com/52392004/156883544-9affd555-58a9-4fb6-bc42-1ab9a0331bfb.png)
 
 생성된 dyanmo table의 정보는 아래와 같습니다. Partition Key와 Sort Key가 string 타입으로 설정되었습니다. 
 
