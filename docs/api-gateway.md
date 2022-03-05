@@ -21,13 +21,12 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 
 
-3) API 생성 화면에서 Create new API 에는 [New API] 를 선택하고 하단 Settings 의 [API name] 에는 “api-simple-storytime” 를 입력합니다. [Endpoint Type] 은 Regional 을 선택합니다. API 트래픽의 오리진에 따라 Edge, Regional, Private 등의 옵션 을 제공하고 있습니다. [Create API] 를 클릭하여 API 를 생성합니다.
+3) API 생성 화면에서 Create new API 에는 [New API] 를 선택하고 하단 Settings 의 [API name] 에는 “api-storytime” 를 입력합니다. [Endpoint Type] 은 Regional 을 선택합니다. API 트래픽의 오리진에 따라 Edge, Regional, Private 등의 옵션 을 제공하고 있습니다. [Create API] 를 클릭하여 API 를 생성합니다.
+
+![image](https://user-images.githubusercontent.com/52392004/156878055-419fedb2-23d1-4319-91f2-7de98d4320e6.png)
 
 
-![apigw-3](https://user-images.githubusercontent.com/52392004/156360566-431499bf-fa35-4c56-9a5f-23b4e49a5322.png)
-
-
-4) 미디어 파일을 지원하기 위해 [API: api-simple-storytime] - [Settings] 에서 스크롤하여 [Binary Media Types]를 아래와 같이 설정합니다.
+4) 미디어 파일을 지원하기 위해 [API: api-storytime] - [Settings] 에서 스크롤하여 [Binary Media Types]를 아래와 같이 설정합니다.
 
 
 ![apigw-4](https://user-images.githubusercontent.com/52392004/156360665-c5fc62ed-0b38-4617-88e3-e2ec0cfc2637.png)
@@ -36,8 +35,7 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 5) API 생성이 완료되면 [Resources] 메뉴 상단의 [Actions] 버튼을 드롭 다운 한 뒤 [Create Resources] 옵션을 선택합니다.
 
-![apigw-5](https://user-images.githubusercontent.com/52392004/156360712-7f9ed4a6-0a6a-497d-83cb-dd6a4ee0cc0f.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156878114-12c400e7-96d6-4282-ae07-703bbcf4029c.png)
 
 
 6) [New Child Resource]에서 [Resource Name]을 "upload"로 입력하고 [Create Resource]를 선택합니다.
@@ -48,18 +46,18 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 7) API 생성이 완료되면 [Resources] 메뉴 상단의 [Actions] 버튼을 드롭 다운 한 뒤 [Create Method] 옵션을 선택합니다.
 
-![apigw-7](https://user-images.githubusercontent.com/52392004/156360794-6e369fad-3ae1-416a-b22a-3a5c33673c6d.png)
+![image](https://user-images.githubusercontent.com/52392004/156878137-5ea9cf00-ba82-43fa-89db-b81bdc240304.png)
+
 
 
 생성된 빈 드롭 다운 메뉴에서는 [POST] 을 선택한 뒤 체크 버튼을 클릭합니다.
 
-![apigw-8](https://user-images.githubusercontent.com/52392004/156360836-c9daa3b5-45ec-46b6-a91e-de627033168a.png)
+![image](https://user-images.githubusercontent.com/52392004/156878165-0697d41b-9e57-436b-b608-9d68b27dd3ec.png)
 
 
+8) / - POST - Setup 화면이 나타납니다. [Ingegration type] 은 Lambda Function 을 선택하고 [Lambda Region] 은 ap-northeast-2 를 선택합니다. [Lambda Function] 에는 미리 만든 "lambda-storytime-upload"를 선택합니다. [Save] 를 선택하여 API 메소드 생성을 완료합니다.g)
 
-8) / - POST - Setup 화면이 나타납니다. [Ingegration type] 은 Lambda Function 을 선택하고 [Lambda Region] 은 ap-northeast-2 를 선택합니다. [Lambda Function] 에는 미리 만든 "lambda-simple-filestore-upload"를 선택합니다. [Save] 를 선택하여 API 메소드 생성을 완료합니다.
-
-![apigw-9](https://user-images.githubusercontent.com/52392004/156360883-d26e92ee-de2c-42ff-a4b2-d16443ee0a53.png)
+![image](https://user-images.githubusercontent.com/52392004/156878191-027e7385-73f5-461f-87e1-c2b17068cefc.png)
 
 
 9) 아래와 같이 Add Permission to Lambda Function 팝업이 나타나면 [OK] 를 선택합니다.
@@ -73,7 +71,7 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 
 
-10) Binary contents 처리를 위해 [API-filestore] - [Resources] - [upload - POST]에서 [Integration Request]를 선택합니다. 이후 아래로 스크롤하여 [Mapping Templates]을 설정합니다.
+10) Binary contents 처리를 위해 [API-storytime] - [Resources] - [upload - POST]에서 [Integration Request]를 선택합니다. 이후 아래로 스크롤하여 [Mapping Templates]을 설정합니다.
 
 1. “Request body passthrough”에서 “When there are no templates defined (recommended)”를 선택
 
