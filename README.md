@@ -1,4 +1,4 @@
-# AWS 서버리스로 간단하게 책 읽어주는 서비스 만들기
+# AWS 서버리스로 책 읽어주는 서비스 만들기
 
 본 문서에서는 Serverless Event-Driven Architecture에 기반하여 책 읽어주는 서비스(Story Time)을 구현하는 과정을 설명합니다. 
 
