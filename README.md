@@ -60,7 +60,11 @@ AWS Polly를 이용해 텍스트틀 mp3로 변환하여 S3에 저장합니다.
 
 각 서비스는 SQS를 통해 버퍼링 됩니다.
 
-9) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
+9) [DynamoDB 설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/dynamodb.md)
+
+DynamoDB에는 파일의 중복을 판단하는 정보와 event에 대한 정보가 저장됩니다.
+
+10) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
 
 파일을 업로드하여 테스트틑 하는 방법과 예상되는 결과를 검토합니다. 
 
