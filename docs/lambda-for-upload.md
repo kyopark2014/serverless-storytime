@@ -26,7 +26,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
 ![Edit Policy](https://user-images.githubusercontent.com/52392004/156359595-e8f4244a-2a2b-4d23-a07c-17acb71c7a0a.png)
 
 
-6) [JSON]에서 아래와 같이 S3와 SQS에 대한 퍼미션을 추가합니다. Permission은 향후 필요에 따라 원하는 범위로 조정할 수 있습니다. 아례 예시에서 "****"은 AWS 계정 번호를 다른 퍼미션과 비교하여 입력하여야 합니다. 
+6) [JSON]에서 아래와 같이 S3, SQS, DynamoDB에 대한 퍼미션을 추가합니다. Permission은 향후 필요에 따라 원하는 범위로 조정할 수 있습니다. 아례 예시에서 "****"은 AWS 계정 번호를 다른 퍼미션과 비교하여 입력하여야 합니다. 
 
 ```java
         {
@@ -51,6 +51,20 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
               "sqs:GetQueueAttributes"
             ],
             "Resource": "arn:aws:sqs:ap-northeast-2:****:sqs-storytime-for-rekognition"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-northeast-2:****:table/*"
         }
 ```
 S3와 SQS에 대한 Permission을 추가후 [Review policy]를 선택합니다.
