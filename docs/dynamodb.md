@@ -1,4 +1,4 @@
-# DynamoDB 설정
+# 9. DynamoDB 설정
 
 ### DynamoDB Table 생성
 
