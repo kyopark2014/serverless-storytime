@@ -26,6 +26,14 @@
 
 ![image](https://user-images.githubusercontent.com/52392004/156734540-1f4115ac-8ebc-436a-8aad-9be354a6b3a3.png)
 
+
+
+이미지 중복 처리에 대한 Sequance는 아래와 같습니다.
+![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
+
+
+
+
 ## Modules
 
 1) [Lambda for upload 구현](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/lambda-for-upload.md)
