@@ -1,0 +1,85 @@
+@startuml Sequence Diagram - Sprites
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/Compute/all.puml
+!includeurl AWSPuml/Mobile/APIGateway.puml
+!includeurl AWSPuml/General/InternetGateway.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+!includeurl AWSPuml/Database/ElastiCache.puml
+!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
+!includeurl AWSPuml/NetworkingAndContentDelivery/CloudFront.puml
+!includeurl AWSPuml/ApplicationIntegration/SNS.puml
+!includeurl AWSPuml/MachineLearning/Rekognition.puml
+!includeurl AWSPuml/MachineLearning/Polly.puml
+!includeurl AWSPuml/ApplicationIntegration/SQS.puml
+
+'Comment out to use default PlantUML sequence formatting
+skinparam participant {
+    BackgroundColor AWS_BG_COLOR
+    BorderColor AWS_BORDER_COLOR
+}
+'Hide the bottom boxes
+hide footbox
+
+actor User as user
+participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda\n(upload)" as lambdaUpload
+participant "<color:#green><$SimpleStorageServiceS3></color>\nAmazon S3" as s3
+participant "<color:#magenta><$CloudFront></color>\nAmazon CloudFront" as cdn
+participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda\n(Rekognition)" as lambdaRekognition
+participant "<color:#green><$Rekognition></color>\nAmazon\nRekognition" as rekognition
+participant "<color:#magenta><$SQS></color>\nAmazon SQS\nPolly" as sqsPolly
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda\n(Polly)" as lambdaPolly
+participant "<color:#green><$Polly></color>\nAmazon Polly" as polly
+participant "<color:#red><$SNS></color>\nAmazon SNS" as sns
+participant "Email Server\n<color:#232F3E><$InternetGateway></color>" as pop3
+
+
+user -> api: Upload File\nPOST /upload
+
+api -> lambdaUpload ++ : Invokes lambda
+
+lambdaUpload -> s3 : putObject
+s3 --> lambdaUpload : 
+
+lambdaUpload -> api : 200OK
+
+api -> user: 200OK
+
+lambdaUpload -> sqsRekognition -- : event (bucket, key)
+
+sqsRekognition -> lambdaRekognition ++ : event (bucket, key)
+
+lambdaRekognition -> rekognition ++: request (bucket, key)
+
+rekognition -> rekognition : Image to JSON
+
+rekognition -> lambdaRekognition -- : 200OK (JSON)
+
+lambdaRekognition -> sqsPolly -- : event (JSON)
+
+sqsPolly -> lambdaPolly ++ : event (JSON)
+
+lambdaPolly -> lambdaPolly : JSON to text
+
+lambdaPolly -> polly ++ : request\n(text, dest bucket)
+
+polly -> polly : test to voice
+
+polly -> s3 : upload mp3
+
+polly -> lambdaPolly --: url
+
+lambdaPolly -> sns --: publish url
+
+sns -> pop3 : request Email
+
+pop3 -> user : Email notification
+
+user -> cdn : request to download
+
+cdn -> user : 200OK with mp3
+
+@enduml
