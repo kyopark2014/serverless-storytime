@@ -1,4 +1,4 @@
-# 3. Lambda for Rekognition 구현"
+# 3. Lambda for Rekognition 구현
 
 1) AWS 콘솔 에서 AWS Lambda 서비스로 이동합니다.
 
