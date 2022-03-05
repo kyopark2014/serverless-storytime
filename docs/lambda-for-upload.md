@@ -1,4 +1,4 @@
-# 1. Lambda for Upload 구현"
+# 1. Lambda for Upload 구현
 
 1) AWS 콘솔 에서 AWS Lambda 서비스로 이동합니다.
 
@@ -6,19 +6,19 @@
 
 https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#/functions
 
-2) [Create function]의 [Basic information]에서 [Function name]은 “lambda-simple-storytime-for-upload"으로 입력하고 [Runtime]으로 Node.js를 선택합니다. 이후 아래로 스크롤하여 [Create function]을 선택합니다.
+2) [Create function]의 [Basic information]에서 [Function name]은 “lambda-storytime-for-upload"으로 입력하고 [Runtime]으로 Node.js를 선택합니다. 이후 아래로 스크롤하여 [Create function]을 선택합니다.
  
-![Create function](https://user-images.githubusercontent.com/52392004/156359235-90b417c5-98c5-4363-ad9b-fd691887e65f.png)
-
-3) [Lambda] - [Funtions] - [lambda-simple-storytime-for-upload]에서 아래와 같이 [Configuration] - [Permissions]을 선택후, [Execution role]의 [Role name]을 아래와 같이 선택합니다. 본 워크샵의 예제에서는 아래와 같이 “lambda-simple-storytime-for-upload-role-8j2d00g8”을 선택합니다.
-
-![Function Overview](https://user-images.githubusercontent.com/52392004/156359392-d1a508f4-9a36-491d-837d-609e17ccb002.png)
+![image](https://user-images.githubusercontent.com/52392004/156876332-7707c7a7-16df-4aeb-a68c-b2889c1b49bf.png)
 
 
-4) 이때 IAM의 [Roles]로 이동하는데, Policy를 수정하기 위하여 아래와 같이 [Permissions policies]에 있는 “AWSLambdaBasicExecutionRole-5563bf12-59f7-4b86-b93a-d12e61907695”을 선택합니다.
+3) [Lambda] - [Funtions] - [lambda-storytime-for-upload]에서 아래와 같이 [Configuration] - [Permissions]을 선택후, [Execution role]의 [Role name]을 아래와 같이 선택합니다. 본 워크샵의 예제에서는 아래와 같이 “lambda-storytime-for-upload-role-ljlfxo89”을 선택합니다.
 
-![Lambda Pollicy](https://user-images.githubusercontent.com/52392004/156359494-003dbcc6-6181-4854-b652-bba0273fc716.png)
+![image](https://user-images.githubusercontent.com/52392004/156876402-6d66af7f-40a1-49d7-94c9-6a86793256a2.png)
 
+
+4) 이때 IAM의 [Roles]로 이동하는데, Policy를 수정하기 위하여 아래와 같이 [Permissions policies]에 있는 “AWSLambdaBasicExecutionRole-47104077-7655-4454-b5fc-114c1fb8f8ea”을 선택합니다.
+
+![image](https://user-images.githubusercontent.com/52392004/156876440-e6c59f7b-15b3-4479-8599-3c70d7fc5601.png)
 
 
 5) [IAM]의 [Policies]로 이동하면, [Permissions]에서 [Edit policy]를 선택합니다.
@@ -56,7 +56,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
 S3와 SQS에 대한 Permission을 추가후 [Review policy]를 선택합니다.
 
 
-![Permission](https://user-images.githubusercontent.com/52392004/156359683-57f930de-66d9-4d9f-9115-061bb567d4f5.png)
+![noname](https://user-images.githubusercontent.com/52392004/156876667-fc44db17-0151-41d9-8958-0aca0e9dccd3.png)
 
 
 
