@@ -64,21 +64,17 @@ AWS Polly를 이용해 텍스트틀 mp3로 변환하여 S3에 저장합니다.
 
 파일을 업로드하여 테스트틑 하는 방법과 예상되는 결과를 검토합니다. 
 
-참고: [API Gateway Log 설정](https://github.com/kyopark2014/simple-serverless-storytime/blob/main/docs/api-gateway-log.md)은
+참고: [API Gateway Log 설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/api-gateway-log.md)은
 API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방법입니다. 
 
 ## Source Codes
 본 워크샵에 필요한 Lambda upload와 notification 에 대한 코드 및 설명은 아래를 참조 바랍니다. 
 
-[[Github: Lambda-upload]](https://github.com/kyopark2014/simple-serverless-storytime-for-upload)
-
-https://github.com/kyopark2014/simple-serverless-storytime-for-upload
-
-[[Github: Lambda-rekognition]](https://github.com/kyopark2014/simple-serverless-storytime-for-rekognition)
-
-https://github.com/kyopark2014/simple-serverless-storytime-for-rekognition
+[[Github: Lambda-upload]](https://github.com/kyopark2014/serverless-storytime-for-upload)
 
 
-[[Github: Lambda-polly]](https://github.com/kyopark2014/simple-serverless-storytime-for-polly)
+[[Github: Lambda-rekognition]](https://github.com/kyopark2014/serverless-storytime-for-rekognition)
 
-https://github.com/kyopark2014/simple-serverless-storytime-for-polly 
+
+[[Github: Lambda-polly]](https://github.com/kyopark2014/serverless-storytime-for-polly)
+
