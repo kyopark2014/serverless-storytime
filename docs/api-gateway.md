@@ -62,12 +62,12 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 9) 아래와 같이 Add Permission to Lambda Function 팝업이 나타나면 [OK] 를 선택합니다.
 
-![apigw-10](https://user-images.githubusercontent.com/52392004/156360931-dca24093-e227-47ef-8865-be159d9cb6ee.png)
+![noname](https://user-images.githubusercontent.com/52392004/156878357-a47114a8-2a89-4dd9-b77c-7dd368e6c289.png)
 
 
 이후 아래와 같이 생성된 API 를 확인 할 수 있습니다.
 
-![apigw-11](https://user-images.githubusercontent.com/52392004/156360970-a48185aa-6f55-4622-9188-b78d860d8f10.png)
+![noname](https://user-images.githubusercontent.com/52392004/156878442-73cad110-509c-4a24-8e98-6ced2e6da103.png)
 
 
 
@@ -94,8 +94,8 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Comm
 
 11) 생성한 API 를 배포해줘야 합니다. [Resources] 메뉴 상단의 [Actions] 버튼을 드롭다운 한 뒤 [Deploy API] 를 클릭합니다.
 
+![image](https://user-images.githubusercontent.com/52392004/156878541-82aa1855-a4e5-423f-b625-991585e9ee70.png)
 
-![apigw-14](https://user-images.githubusercontent.com/52392004/156361071-e7771509-3fe0-4348-974a-a742676ebf4e.png)
 
 
 12) [Deploy stage] 는 [New Stage] 를 선택하고 [Stage name*] 에는 dev 를 입력한 뒤 [Deploy] 버튼을 클릭합니다.
@@ -103,18 +103,16 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Comm
 13) 아래와 같이 [Stages] - [dev]를 선택한후, invoke URL을 확인합니다.
 
 ```c
-https://ds1y3ss8wg.execute-api.ap-northeast-2.amazonaws.com/dev
+https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev
 
 ````
 
-![apigw-15](https://user-images.githubusercontent.com/52392004/156361107-49724049-c050-4618-9631-705e41c1e8e1.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156878589-f4e73ae3-8f44-44e5-879f-887a0aca08c8.png)
 
 
 14) 아래와 같이 [Logs/Tracing]의 [CloudWatch Settings]에서 [Enable CloudWatch Logs], [Log full requests/responses date], [Enable Detailed CloudWatch Metrics]를 모두 enable 하고 [Log level]을 “INFO”로 설정합니다.
 
-![apigw-16](https://user-images.githubusercontent.com/52392004/156361136-39d893f8-f091-45e9-8e50-7ea97107b416.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156878623-6f360f10-5dea-4fb9-b2d5-17bf7560329f.png)
 
 
 
