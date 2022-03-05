@@ -19,7 +19,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
 3) [IAM] - [Roles]로 화면이 전환된 후에, 아래와 같이 [Permissions policies]에서 “AWSLambdaBasicExecutionRole-1e7aac03-21ad-4d81-89c9-3416cb2d7277”을 선택합니다. 
 
 
-![image](https://user-images.githubusercontent.com/52392004/156881991-009f64d1-2e52-4ddc-9058-62b447130e3e.png)
+![noname](https://user-images.githubusercontent.com/52392004/156882220-f4006da7-77ea-44d4-aa23-e5bdc14276c0.png)
 
 
 
@@ -38,7 +38,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
                 "sqs:PurgeQueue",
                 "sqs:GetQueueAttributes"
             ],
-            "Resource": "arn:aws:sqs:ap-northeast-2:****:sqs-simple-storytime-for-polly"
+            "Resource": "arn:aws:sqs:ap-northeast-2:****:sqs-storytime-for-polly"
         },
         {
             "Effect": "Allow",
@@ -53,7 +53,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
                 "sns:ListTagsForResource",
                 "sns:ListSubscriptionsByTopic"
             ],
-            "Resource": "arn:aws:sns:ap-northeast-2:****:sns-simple-storytime"
+            "Resource": "arn:aws:sns:ap-northeast-2:****:sns-storytime"
         },
         {
             "Effect": "Allow",
