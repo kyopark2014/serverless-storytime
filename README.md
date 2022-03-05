@@ -1,7 +1,9 @@
 # Serverless Event-Driven Architecture for Story Time
 It is a serverless architecture for voice book creator.
 
-<img width="1002" alt="image" src="https://user-images.githubusercontent.com/52392004/154867592-6eb4ae6a-22d1-4ccf-b3d0-7bfe2c6bb606.png">
+<img width="1421" alt="image" src="https://user-images.githubusercontent.com/52392004/156873584-feb121e1-a2ed-4dce-858f-4783db48531d.png">
 
 There is a similar github( https://github.com/kyopark2014/simple-serverless-storytime ) but it has more parts to intgrete authentification, monitoring, and develpment. So, it can be closer architure to commercialize.
+
+## API-Gateway
 
