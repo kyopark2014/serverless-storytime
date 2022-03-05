@@ -50,13 +50,13 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
               "sqs:PurgeQueue",
               "sqs:GetQueueAttributes"
             ],
-            "Resource": "arn:aws:sqs:ap-northeast-2:****:sqs-simple-storytime-for-rekognition"
+            "Resource": "arn:aws:sqs:ap-northeast-2:****:sqs-storytime-for-rekognition"
         }
 ```
 S3와 SQS에 대한 Permission을 추가후 [Review policy]를 선택합니다.
 
 
-![noname](https://user-images.githubusercontent.com/52392004/156876667-fc44db17-0151-41d9-8958-0aca0e9dccd3.png)
+![noname](https://user-images.githubusercontent.com/52392004/156876808-960a0625-d7bf-444e-9de9-6f27361f1b8a.png)
 
 
 
@@ -67,7 +67,7 @@ S3와 SQS에 대한 Permission을 추가후 [Review policy]를 선택합니다.
 아래와 같이 소스를 내려 받습니다.
  
 ```c
-$ git clone https://github.com/kyopark2014/simple-serverless-storytime-for-upload
+$ git clone https://github.com/kyopark2014/serverless-storytime-for-upload
 ```
 
 해당 repository에는 이미 압축된 파일이 있지만, 추후 수정시 폴더로 이동하여 압축을 합니다. 이때 압축 명령어는 아래와 같습니다.
@@ -76,13 +76,12 @@ $ git clone https://github.com/kyopark2014/simple-serverless-storytime-for-uploa
 $ zip -r deploy.zip *
 ```
 
-9) Lambda console에서 [Functions] - [lambda-simple-storytime-for-upload]을 선택한후, 코드를 업로드 합니다.
+9) Lambda console에서 [Functions] - [lambda-storytime-for-upload]을 선택한후, 코드를 업로드 합니다.
 
 [Upload from] 버튼을 누른후에 아래처럼 [.zip file]을 선택합니다. 이후 다운로드한 파일에서 “deploy.zip” 을 선택합니다.
 
 10) 업로드 후에는 자동으로 [Deploy]이 됩니다. 하지만 추후 console에서 바로 수정시에는 아래와 같이 [Deploy]를 선택하여 배포하여야 합니다.
 
 
-![code](https://user-images.githubusercontent.com/52392004/156360111-ae4bad84-0384-4f97-9a1f-a3dcd2ae53b8.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156876945-e0bb4368-e269-4e80-a33a-0758ffd0c952.png)
 
