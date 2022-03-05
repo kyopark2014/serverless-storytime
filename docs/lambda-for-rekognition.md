@@ -84,7 +84,7 @@ $ zip -r deploy.zip *
 
 9) Lambda console에서 [Functions] - [lambda-storytime-for-rekognition]을 선택한후, 코드를 업로드 합니다.
 
-[rekognition from] 버튼을 누른후에 아래처럼 [.zip file]을 선택합니다. 이후 다운로드한 파일에서 “deploy.zip” 을 선택합니다.
+[Upload from] 버튼을 누른후에 아래처럼 [.zip file]을 선택합니다. 이후 다운로드한 파일에서 “deploy.zip” 을 선택합니다.
 
 10) 업로드 후에는 자동으로 [Deploy]이 됩니다. 하지만 추후 console에서 바로 수정시에는 아래와 같이 [Deploy]를 선택하여 배포하여야 합니다.
 
