@@ -12,22 +12,23 @@ https://ap-northeast-2.console.aws.amazon.com/dynamodbv2/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/156883544-9affd555-58a9-4fb6-bc42-1ab9a0331bfb.png)
 
-생성된 dyanmo table의 정보는 아래와 같습니다. Partition Key와 Sort Key가 string 타입으로 설정되었습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156787695-1074062c-8b30-424b-9533-14c83592e027.png)
+3) Secondary indexes를 설정하기 위해서, [DynamoDB] - [Tables] - [dynamodb-storytime]의 [Indexes]에서 [Create index]를 선택합니다. 
 
-3) Secondary indexes를 설정하기 위해서, [DynamoDB] - [Tables] - [dynamodb-image-duplication-checker]의 [Indexes]에서 [Create index]를 선택합니다. 
+![image](https://user-images.githubusercontent.com/52392004/156883648-0e1eb8e1-6988-491b-9a89-77c751de4334.png)
 
-![image](https://user-images.githubusercontent.com/52392004/156795261-3adf533f-7b4c-4d5f-994c-5143cebfc7a6.png)
 
 아래와 같이 Global secondary index로 "ContentID"를 입력하고 아래로 스크롤하여 [Create Index]를 선택합니다. 
-![image](https://user-images.githubusercontent.com/52392004/156796028-50ef2254-ea33-4759-9ba6-a7c243cd4246.png)
+
+![image](https://user-images.githubusercontent.com/52392004/156883683-9840e017-dbd6-40f2-8458-e2d6c2a4efa1.png)
+
 
 
 4) billing 방식을 On-demand로 바꾸기 위하여, 아래와 같이 [Actions]에서 [Edit capacity]를 선택합니다.
 
-![image](https://user-images.githubusercontent.com/52392004/156797590-a2f4d225-8869-42e3-84bc-831f47b8159f.png)
+![image](https://user-images.githubusercontent.com/52392004/156883762-1b15fa75-56e4-41e6-922d-220b6e2af39b.png)
+
 
 Capacity mode를 [On-demand]로 선택후, [Save changes]를 선택하여 변경합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156798089-884a17bc-5cec-49c1-8649-5e8616083bc4.png)
+![image](https://user-images.githubusercontent.com/52392004/156883784-70135e79-6563-44b4-9c38-a74fe16cbd15.png)
