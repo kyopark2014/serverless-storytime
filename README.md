@@ -82,3 +82,5 @@ API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방�
 
 [[Github: Lambda-polly]](https://github.com/kyopark2014/serverless-storytime-for-polly)
 
+### Plant UML
+https://github.com/kyopark2014/image-duplication-checker/blob/main/docs/plantuml.md
