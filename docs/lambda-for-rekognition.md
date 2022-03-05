@@ -25,7 +25,7 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
 ![noname](https://user-images.githubusercontent.com/52392004/156881563-1c253ccf-0896-4bbd-a1fd-8c93e88b318d.png)
 
 
-6) [JSON]에서 아래와 같이 SQS에 대한 퍼미션을 추가합니다. Lambda for Rekognition은 양쪽에 SQS가 2개이므로  resource에 SQS 2개를 모두 등록하여야 하며, Rekognition과 S3에 대한 Permission도 아래와 같이 추가 합니다. 아례 예시에서 "****"은 AWS 계정 번호를 다른 퍼미션과 비교하여 입력하여야 합니다. 
+6) [JSON]에서 아래와 같이 SQS, Rekognition, S3, DynamoDB에 대한 퍼미션을 추가합니다. Lambda for Rekognition은 양쪽에 SQS가 2개이므로 resource에 SQS 2개를 모두 등록하여야 합니다. 아례 예시에서 "****"은 AWS 계정 번호를 다른 퍼미션과 비교하여 입력하여야 합니다. 
 
 ```java
         {
@@ -59,6 +59,20 @@ https://ap-northeast-2.console.aws.amazon.com/lambda/home?region=ap-northeast-2#
                 "s3:Delete*"
             ],
             "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-northeast-2:677146750822:table/*"
         }
 ```        
 
