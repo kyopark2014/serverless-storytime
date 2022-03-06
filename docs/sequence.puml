@@ -41,6 +41,9 @@ user -> api: Upload File\nPOST /upload
 
 api -> lambdaUpload ++ : Invokes lambda
 
+
+lambdaUpload -> lambdaUpload : check duplication
+
 lambdaUpload -> s3 : putObject
 s3 --> lambdaUpload : 
 

@@ -35,7 +35,7 @@ lambda -> lambda: Hash image to make ContentID
 'redis -> lambda -- : 200OK (empty)
 
 lambda -> dynamoDB ++ : Query ContentID
-dynamoDB -> lambda -- : 200OK\n(UUID, json, text, url)
+dynamoDB -> lambda -- : 200OK\n(UUID, Json, Text, URL)
 
  
 'lambda -> redis ++ : putCache ContentID, UUID
@@ -44,7 +44,7 @@ dynamoDB -> lambda -- : 200OK\n(UUID, json, text, url)
 lambda -> api : 200OK (UUID)
 api -> user: 200OK (UUID)
 
-lambda -> sqsRekognition -- : Send message\n(uuid, json, text, url)
+lambda -> sqsRekognition -- : Send message\n(UUID, Json, Text, URL)
 
 
 @enduml

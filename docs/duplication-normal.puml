@@ -1,0 +1,58 @@
+@startuml Sequence Diagram - Sprites
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/Compute/all.puml
+!includeurl AWSPuml/Mobile/APIGateway.puml
+!includeurl AWSPuml/General/InternetGateway.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+!includeurl AWSPuml/Database/ElastiCache.puml
+!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
+!includeurl AWSPuml/ApplicationIntegration/SQS.puml
+'Comment out to use default PlantUML sequence formatting
+skinparam participant {
+    BackgroundColor AWS_BG_COLOR
+    BorderColor AWS_BORDER_COLOR
+}
+'Hide the bottom boxes
+hide footbox
+
+actor User as user
+participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
+'participant "<color:#3B48CC><$ElastiCache></color>\nAmazon ElastiCache" as redis
+participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
+participant "<color:#green><$SimpleStorageServiceS3></color>\nAmazon S3" as s3
+participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
+
+user -> api: Upload Image\nPOST /upload
+
+api -> lambda ++: Invokes lambda
+
+lambda -> lambda: Hash image to make ContentID
+
+'lambda -> redis ++ : getCache ContentID
+'redis -> lambda -- : 200OK (empty)
+
+lambda -> dynamoDB ++ : Query ContentID
+dynamoDB -> lambda -- : 200OK (empty)
+
+lambda -> s3 ++: PutObject
+s3 -> lambda --:
+ 
+lambda -> lambda : Generate UUID
+
+'lambda -> redis ++ : putCache ContentID, UUID
+'redis -> lambda -- :
+
+
+lambda -> api : 200OK (UUID)
+api -> user: 200OK (UUID)
+
+lambda -> dynamoDB ++ : PutItem ContentID, UUID
+dynamoDB -> lambda -- :
+
+lambda -> sqsRekognition -- : Send message\n(uuid, bucket, key)
+
+
+@enduml
