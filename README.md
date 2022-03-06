@@ -24,8 +24,7 @@
 
 사진 전송후 AWS Rekognition과 AWS Polly를 통해 음성파일(mp3)로 전환되는 동작 시나리오는 아래의 Sequence Diagram을 참고 부탁드립니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156734540-1f4115ac-8ebc-436a-8aad-9be354a6b3a3.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156918229-7af58756-a86b-405b-8053-5c1632a3989e.png)
 
 
 이미지 중복 처리에 대한 Sequance는 아래와 같습니다.
