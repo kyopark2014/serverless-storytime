@@ -41,8 +41,7 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경우에 아래와 같이 Lambda가 DynamoDB를 조회하여 추출된 Text와 원본이미지, 음성파일(mp3)에 대한 URL 경로를 확인 할 수 있습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156918590-738e2e91-72ae-4382-b6b5-9e6ac2f77951.png)
-
+![image](https://user-images.githubusercontent.com/52392004/156918621-ffef8400-0e38-4905-a85e-49bcce817764.png)
 
 
 ## Modules
