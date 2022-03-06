@@ -82,7 +82,12 @@ AWS Polly를 이용해 텍스트틀 mp3로 변환하여 S3에 저장합니다.
 
 DynamoDB에는 파일의 중복을 판단하는 정보와 event에 대한 정보가 저장됩니다.
 
-10) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
+10) [Lambda for Retrieve 구현](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/lambda-for-retreieve.md)
+
+이미지 파일 업로드 Client에서 Polling 하거나 사용자 Action으로 조회시 사용하는 '/getResult' API를 위한 Lambda를 정의 합니다.
+
+
+11) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
 
 파일을 업로드하여 테스트틑 하는 방법과 예상되는 결과를 검토합니다. 
 
