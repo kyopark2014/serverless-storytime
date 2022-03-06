@@ -30,7 +30,7 @@
 
 이미지 중복 처리에 대한 Sequance는 아래와 같습니다.
 
-Upload가 되면 Hash를 통해 ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
+이미지가 Upload가 되면 Lambda는 Hash를 통해  ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156917347-9035331b-703b-4900-b1fa-fe84721b870e.png)
 
