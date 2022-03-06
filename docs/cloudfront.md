@@ -10,7 +10,7 @@ https://console.aws.amazon.com/cloudfront/v3/home?region=ap-northeast-2#/distrib
 
 ![cloudfront-1](https://user-images.githubusercontent.com/52392004/156367906-dfb29a80-8285-4da6-9951-83d467de75a9.png)
 
-2) [Create distribution]에서 [Origin domain]을 선택하면 기존에 생성한 S3 bucket과 유사한 도메인 들이 보여집니다. 여기서 "s3-simple-storytime"와 관련된 도메인을 선택합니다. 또한, 보안을 위해 아래와 같이 [S3 bucket access]를 “Don't use OAI (bucket must allow public access)”에서 “Yes use OAI (bucket can restrict access to only CloudFront)”로 변경하고, [Bucket policy]를 "Yes, update the bucket policy"를 선택합니다. 
+2) [Create distribution]에서 [Origin domain]을 선택하면 기존에 생성한 S3 bucket과 유사한 도메인 들이 보여집니다. 여기서 "s3-storytime"와 관련된 도메인을 선택합니다. 또한, 보안을 위해 아래와 같이 [S3 bucket access]를 “Don't use OAI (bucket must allow public access)”에서 “Yes use OAI (bucket can restrict access to only CloudFront)”로 변경하고, [Bucket policy]를 "Yes, update the bucket policy"를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156879328-f208bf00-ee49-4437-96a4-597cd38903f3.png)
 
