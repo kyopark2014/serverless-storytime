@@ -114,5 +114,24 @@ https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev
 
 ![image](https://user-images.githubusercontent.com/52392004/156878623-6f360f10-5dea-4fb9-b2d5-17bf7560329f.png)
 
+15) 결과를 조회하는 API를 구현하기 위하여, [APIs] - [api-storytime] - [Resources] - [Actions]에서 [Create Resources]를 선택하고, 아래와 같이 "getResult"로 합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156932664-64091486-c2a0-4e21-bc28-e3770d676325.png)
+
+16) [Actions] - [Create Method]를 선택한후, 아래와 같이 HTTP GET을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156932713-4358b9cd-79ee-4683-996e-1f4e6de0e7ce.png)
+
+17) [Lambda Function]으로 아래와 같이 lambda-storytime-for-retrieve를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156932783-04671882-78d6-47d9-81a2-cb6f5ae3dcef.png)
+
+18) 아래와 같이 "OK"를 선택합니다.
+
+![noname](https://user-images.githubusercontent.com/52392004/156932858-06d19301-de29-4a70-87b7-888d6d08df9c.png)
+
+19) 추가한 Retrieve API는 아래와 같습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156932902-e4c99801-e447-4124-865f-6d0279e60eb9.png)
 
 
