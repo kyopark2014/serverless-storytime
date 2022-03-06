@@ -30,7 +30,14 @@
 
 이미지 중복 처리에 대한 Sequance는 아래와 같습니다.
 
-![image](https://user-images.githubusercontent.com/52392004/156871212-7c8afc29-65ec-49ff-bc39-2802a1d903ef.png)
+Upload가 되면 Hash를 통해 ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156917347-9035331b-703b-4900-b1fa-fe84721b870e.png)
+
+Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly로 계산된 결과가 있다면, DynamoDB 조회를 통해 확인 할 수 있습니다. Lambda는 UUID를 새로 생성하지 않고 이전 등록된 이미지에 대한 UUID를 User에게 전달합니다. 또한, DynamoDB에서 조회하여 얻은 AWS Rekognition의 결과인 JSON 데이터와 Lambda가 추출한 Text, AWS Polly가 텍스트를 음성파일(MP3)로 변환하고 S3에 저장하여 CloudFront을 통해 외부에서 접속 가능한 URL을 SQS에 Event로 저장합니다. 이 Event는 정상적인 Event와 동일하게 흐르지만, AWS Rekognition, Text변환하는 Lambda, AWS Polly는 해당 데이터가 있는 경우에 skip 하므로 전체적인 프로세스 개선 효과가 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156917420-c6628c22-67e2-424a-b90c-31847bb7b504.png)
+
 
 
 
