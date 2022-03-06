@@ -7,6 +7,8 @@
 !includeurl AWSPuml/General/InternetGateway.puml
 !includeurl AWSPuml/Database/DynamoDB.puml
 !includeurl AWSPuml/Database/ElastiCache.puml
+!includeurl AWSPuml/ApplicationIntegration/SQS.puml
+
 'Comment out to use default PlantUML sequence formatting
 skinparam participant {
     BackgroundColor AWS_BG_COLOR
@@ -19,18 +21,18 @@ actor User as user
 participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
 participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
 participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
-
+participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
 
 user -> api: Retrieve Image\nGET /getResult (UUID)
 
 api -> lambda ++: Invokes lambda (UUID)
 
 lambda -> dynamoDB ++ : Query UUID
-dynamoDB -> lambda -- : 200OK\n(Text, URLs)
+dynamoDB -> lambda -- : 200OK\n(Json, Txt, empty URL)
 
-lambda -> api -- : 200OK (Text, URLs)
-api -> user: 200OK (Text, URLs)
+lambda -> api : 503
+api -> user: 503
 
-
+lambda -> sqsRekognition  --: Request event\n (Json, Txt, empty URL)
 
 @enduml

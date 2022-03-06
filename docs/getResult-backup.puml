@@ -1,0 +1,38 @@
+@startuml Sequence Diagram - Sprites
+
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/master/dist
+!includeurl AWSPuml/AWSCommon.puml
+!includeurl AWSPuml/Compute/all.puml
+!includeurl AWSPuml/Mobile/APIGateway.puml
+!includeurl AWSPuml/General/InternetGateway.puml
+!includeurl AWSPuml/Database/DynamoDB.puml
+!includeurl AWSPuml/Database/ElastiCache.puml
+!includeurl AWSPuml/ApplicationIntegration/SQS.puml
+
+'Comment out to use default PlantUML sequence formatting
+skinparam participant {
+    BackgroundColor AWS_BG_COLOR
+    BorderColor AWS_BORDER_COLOR
+}
+'Hide the bottom boxes
+hide footbox
+
+actor User as user
+participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
+participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
+participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
+participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
+
+user -> api: Retrieve Image\nGET /getResult (UUID)
+
+api -> lambda ++: Invokes lambda (UUID)
+
+lambda -> dynamoDB ++ : Query UUID
+dynamoDB -> lambda -- : 200OK\n(Text, URLs)
+
+lambda -> api -- : 200OK (Text, URLs)
+api -> user: 200OK (Text, URLs)
+
+'lambda -> sqsRekognition : Request event for notification 
+
+@enduml
