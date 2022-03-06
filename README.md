@@ -27,7 +27,7 @@
 ![image](https://user-images.githubusercontent.com/52392004/156918229-7af58756-a86b-405b-8053-5c1632a3989e.png)
 
 
-이미지 중복 처리에 대한 Sequance는 아래와 같습니다.
+### 중복 요청 처리
 
 이미지가 Upload가 되면 Lambda는 Hash를 통해  ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
 
@@ -37,6 +37,11 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 ![image](https://user-images.githubusercontent.com/52392004/156917770-4cc19c86-58ef-4fd4-96ff-beb04af35712.png)
 
+### Retrieve API
+
+User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경우에 아래와 같이 Lambda가 DynamoDB를 조회하여 추출된 Text와 원본이미지, 음성파일(mp3)에 대한 URL 경로를 확인 할 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156918590-738e2e91-72ae-4382-b6b5-9e6ac2f77951.png)
 
 
 
