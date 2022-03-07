@@ -55,10 +55,17 @@ Result : https://github.com/kyopark2014/simple-serverless-voicebookcreator/blob/
       
 ## 시험방법2 (Retrieve)
 
-### Curl을 이용한 시험방법 
+### 1) Curl을 이용한 시험방법 
 
 Retrieve는 Upload API 이후에 수행되므로 ETag을 통해 event의 ID와 시간(timestamp)를 알수 있습니다. 이 두 값은 DynamoDB에 해당 event를 저장시 Partition key와 Sort key로 사용되므로, Retrive 조회시 반드시 Header로 포함되어야 합니다. 따라서 아래와 같이 curl로 조회시 ETag와 Timestamp를 추가 합니다. 또한, API Gateway - Lambda 사용시 Header값을 전달하기 위하여 "Content-Type:  application/json"을 포함합니다. 
 
 ```c
 # curl -i https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev/getResult -X GET -H 'ETag: 005e260b-7b3e-4904-b500-9853fc40a273' -H 'Timestamp: 1646580038' -H 'Content-Type: application/json'
 ```
+
+
+### 2) Postman을 이용한 시험방법
+
+아래와 같이 Postman에서 API Gateway로 Retrieve API를 HTTP GET으로 조회하기 위하여 아래와 같이 ETag, Timestamp, Content-Type을 추가합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157046991-6519990a-8ac3-4d68-a5bd-5d319136346c.png)
