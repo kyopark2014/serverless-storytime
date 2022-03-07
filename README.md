@@ -53,12 +53,12 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경우에 아래와 같이 Lambda가 DynamoDB를 조회하여 추출된 Text와 원본이미지, 음성파일(mp3)에 대한 URL 경로를 확인 할 수 있습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156918621-ffef8400-0e38-4905-a85e-49bcce817764.png)
+![image](https://user-images.githubusercontent.com/52392004/157040329-c4fe0b44-3f35-4660-9ce3-2aa87df79db1.png)
 
 Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확인 할 수 없는 경우가 있습니다. 아래 케이스는 Retrive로 조회시 DynamoDB에 AWS Rekognition 수행결과(Json)과 Lambda의 Text Extraction 결과(Text)는 있으나 AWS Polly가 수행한 결과가 없는 경우입니다. 이 경우에, Lambda는 User에 503 (Retry-After:60)을 전달하여 60초 후에 재시도 하도록 정보를 전달하고, SQS에 Event에 대한 정보를 전달하여, AWS Polly가 다시 Text를 음성파일(MP3)로 변환하도록 요청합니다. 이러한 과정을 통해 Fail over 처리가 가능합니다. 여기서, User가 이미지를 업로드하고 즉시 Retrieve 하는 케이스에 있다면, 중복으로 요청 될 수 있으므로, Retrieve API로 요청이 왔을때 이전 Upload Request와의 시간이 일정시간(60초)이내인 경우에만 SQS에 요청을 합니다. 
 
 
-![image](https://user-images.githubusercontent.com/52392004/156978676-4380c055-edf6-4ba8-8875-a1db1422cd3c.png)
+![image](https://user-images.githubusercontent.com/52392004/157040424-6bca2c8c-c58d-4a53-aa72-73510374319e.png)
 
 
 ## Modules
