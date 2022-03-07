@@ -105,3 +105,18 @@ $ zip -r deploy.zip *
 
 ![image](https://user-images.githubusercontent.com/52392004/156881696-a75e958f-ca96-42e0-96bc-7c59f69bf30d.png)
 
+
+### Troubleshooting: Time out으로 이미지에서 텍스트 추출이 안되는 경우
+
+Lambda는 사용하는 Timeout을 configuration으로 조정 할 수 있으며 기본값은 아래와 같이 3초 입니다.
+
+![image](https://user-images.githubusercontent.com/52392004/157043508-56ba5904-2eac-4bcf-b360-c85e490f3675.png)
+
+그러나 Lambda가 event를 처리하는 시간이 3초를 초과한다면 해당 event 처리를 완료하지 못할 수 있습니다. 아래는 Lambda for Rkognition의 CloudWatch로그로서 event 처리시간이 3초를 초과하여 timeout이 발생하였습니다. 따라서, 이런 경우에 아래와 같이 적절한 값(여기서는 10초)로 조정하여야 합니다.
+
+![noname](https://user-images.githubusercontent.com/52392004/157044563-acece05a-081c-4b85-819b-d26922ffeff4.png)
+
+
+
+![image](https://user-images.githubusercontent.com/52392004/157043311-a3f92487-28d6-435c-9379-df92a36f9780.png)
+
