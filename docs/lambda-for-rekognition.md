@@ -108,7 +108,8 @@ $ zip -r deploy.zip *
 
 ### Troubleshooting: Time out으로 이미지에서 텍스트 추출이 안되는 경우
 
-Lambda는 사용하는 Timeout을 configuration으로 조정 할 수 있으며 기본값은 아래와 같이 3초 입니다.
+[Lambda] - [Functions] - [labmda-storytime-for-rekognition]의 [Configuration] - [General configuration]에서 Lambda는 사용하는 Timeout 값을 확인할 수 있습니다. 
+아래와 같이 Lambda의 기본값은 3초 입니다.
 
 ![image](https://user-images.githubusercontent.com/52392004/157043508-56ba5904-2eac-4bcf-b360-c85e490f3675.png)
 
