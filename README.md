@@ -55,7 +55,7 @@ User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경
 
 ![image](https://user-images.githubusercontent.com/52392004/156918621-ffef8400-0e38-4905-a85e-49bcce817764.png)
 
-Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확인 할 수 없는 경우가 있습니다. 아래 케이스는 Retrive로 조회시 DynamoDB에 AWS Rekognition 수행결과(Json)과 Lambda의 Text Extraction 결과(Text)는 있으나 AWS Polly가 수행한 결과가 없는 경우입니다. 이 경우에, Lambda는 User에 503 (Retry-After:60)을 전달하여 60초 후에 재시도 하도록 정보를 전달하고, SQS에 Event에 대한 정보를 전달하여, AWS Polly가 다시 Text를 음성파일(MP3)로 변환하도록 요청합니다. 이러한 과정을 통해 Fail over 처리가 가능합니다. 
+Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확인 할 수 없는 경우가 있습니다. 아래 케이스는 Retrive로 조회시 DynamoDB에 AWS Rekognition 수행결과(Json)과 Lambda의 Text Extraction 결과(Text)는 있으나 AWS Polly가 수행한 결과가 없는 경우입니다. 이 경우에, Lambda는 User에 503 (Retry-After:60)을 전달하여 60초 후에 재시도 하도록 정보를 전달하고, SQS에 Event에 대한 정보를 전달하여, AWS Polly가 다시 Text를 음성파일(MP3)로 변환하도록 요청합니다. 이러한 과정을 통해 Fail over 처리가 가능합니다. 여기서, User가 이미지를 업로드하고 즉시 Retrieve 하는 케이스에 있다면, 중복으로 요청 될 수 있으므로, Retrieve API로 요청이 왔을때 이전 Upload Request와의 시간이 일정시간(60초)이내인 경우에만 SQS에 요청을 합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156956984-398f571f-d936-4d44-a05e-49d72e2a369a.png)
 
