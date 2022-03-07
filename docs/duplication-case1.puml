@@ -7,8 +7,8 @@
 !includeurl AWSPuml/General/InternetGateway.puml
 !includeurl AWSPuml/Database/DynamoDB.puml
 !includeurl AWSPuml/Database/ElastiCache.puml
-!includeurl AWSPuml/ApplicationIntegration/SQS.puml
-
+!includeurl AWSPuml/Storage/SimpleStorageServiceS3.puml
+!includeurl AWSPuml/ApplicationIntegration/SNS.puml
 'Comment out to use default PlantUML sequence formatting
 skinparam participant {
     BackgroundColor AWS_BG_COLOR
@@ -20,19 +20,30 @@ hide footbox
 actor User as user
 participant "<color:#red><$APIGateway>\nAmazon API Gateway" as api
 participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
+'participant "<color:#3B48CC><$ElastiCache></color>\nAmazon ElastiCache" as redis
 participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
-participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
+participant "<color:#green><$SimpleStorageServiceS3></color>\nAmazon S3" as s3
+participant "<color:#red><$SNS></color>\nAmazon SNS" as sns
 
-user -> api: Retrieve Image\nGET /getResult (UUID)
+user -> api: Upload Image\nPOST /upload
 
-api -> lambda ++: Invokes lambda (UUID)
+api -> lambda ++: Invokes lambda
 
-lambda -> dynamoDB ++ : Query UUID
-dynamoDB -> lambda -- : 200OK\n(Json, Text, empty URL)
+lambda -> lambda: Hash image to make ContentID
 
-lambda -> api : 503 (Retry-After:300)
-api -> user: 503 (Retry-After:300)
+'lambda -> redis ++ : getCache ContentID
+'redis -> lambda -- : 200OK (empty)
 
-lambda -> sqsRekognition  --: Request event\n (Json, Text, empty URL)
+lambda -> dynamoDB ++ : Query ContentID
+dynamoDB -> lambda -- : 200OK\n(UUID, Json, Text, URL)
+
+ 
+'lambda -> redis ++ : putCache ContentID, UUID
+'redis -> lambda -- :
+
+lambda -> api : 200OK (UUID)
+api -> user: 200OK (UUID)
+
+lambda -> sns -- : publish message\n(Text, URLs)
 
 @enduml
