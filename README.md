@@ -55,6 +55,10 @@ User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경
 
 ![image](https://user-images.githubusercontent.com/52392004/156918621-ffef8400-0e38-4905-a85e-49bcce817764.png)
 
+Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확인 할 수 없는 경우가 있습니다. 아래 케이스는 Retrive로 조회시 DynamoDB에 AWS Rekognition 수행결과(Json)과 Lambda의 Text Extraction 결과(Text)는 있으나 AWS Polly가 수행한 결과가 없는 경우입니다. 이 경우에, Lambda는 User에 503 (Retry-After:60)을 전달하여 60초 후에 재시도 하도록 정보를 전달하고, SQS에 Event에 대한 정보를 전달하여, AWS Polly가 다시 Text를 음성파일(MP3)로 변환하도록 요청합니다. 이러한 과정을 통해 Fail over 처리가 가능합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/156956578-5faf88d1-1082-42b2-b7cd-5b80c88c2c1c.png)
+
 
 ## Modules
 
