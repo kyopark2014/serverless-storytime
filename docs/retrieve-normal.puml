@@ -23,7 +23,7 @@ participant "<color:#D86613><$Lambda></color>\nAmazon Lambda" as lambda
 participant "<color:#3B48CC><$DynamoDB></color>\nAmazon DynamoDB" as dynamoDB
 participant "<color:#magenta><$SQS></color>\nAmazon SQS\nRekognition" as sqsRekognition
 
-user -> api: Retrieve Image\nGET /getResult (UUID)
+user -> api: Retrieve Image\nGET /retrieve (UUID)
 
 api -> lambda ++: Invokes lambda (UUID)
 
