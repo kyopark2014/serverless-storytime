@@ -116,35 +116,46 @@ https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev
 
 15) 결과를 조회하는 API를 구현하기 위하여, [APIs] - [api-storytime] - [Resources] - [Actions]에서 [Create Resources]를 선택하고, 아래와 같이 "retrieve"로 합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157036454-bf747b6e-ce6f-4911-bcdc-3415ad46dc5a.png)
-
+![image](https://user-images.githubusercontent.com/52392004/157036884-e1859a78-4d25-4960-8e2c-644574de364c.png)
 
 
 16) [Actions] - [Create Method]를 선택한후, 아래와 같이 HTTP GET을 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157036884-e1859a78-4d25-4960-8e2c-644574de364c.png)
-
-
 ![image](https://user-images.githubusercontent.com/52392004/156932713-4358b9cd-79ee-4683-996e-1f4e6de0e7ce.png)
+
+
 17) [Lambda Function]으로 아래와 같이 lambda-storytime-for-retrieve를 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156932783-04671882-78d6-47d9-81a2-cb6f5ae3dcef.png)
+![image](https://user-images.githubusercontent.com/52392004/157037197-979fe34f-a7e0-4f8d-881a-88c4520396fd.png)
+
 
 18) 아래와 같이 "OK"를 선택합니다.
 
-![noname](https://user-images.githubusercontent.com/52392004/156932858-06d19301-de29-4a70-87b7-888d6d08df9c.png)
+![noname](https://user-images.githubusercontent.com/52392004/157037383-73c49d53-a56f-48a8-9cfc-308b3a95fc77.png)
+
+
+
 
 19) 추가한 Retrieve API는 아래와 같습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156932902-e4c99801-e447-4124-865f-6d0279e60eb9.png)
+![noname](https://user-images.githubusercontent.com/52392004/157037563-7911fbcf-c621-496a-ae2b-6f0d59abaed3.png)
 
 
-## Troubleshooting - Header 처리
+20) Header 처리를 위한 Content-type 추가 
 
-Lambda 함수는 API Gateway API 요청에서 수신하는 메서드 요청 본문만 처리합니다. 따라서, API Gateway API에서 Lambda 함수로 사용자 지정 헤더를 전달하려면 본문 매핑 템플릿을 사용하여야 합니다. (기본적으로 Lambda 함수는 API Gateway API 요청에서 수신하는 메서드 요청 본문만 처리합니다. API Gateway API에서 Lambda 함수로 사용자 지정 헤더를 전달하려면 본문 매핑 템플릿을 사용)
+
+Lambda 함수는 API Gateway API 요청에서 수신하는 메서드 요청 본문만 처리합니다. 따라서, API Gateway API에서 Lambda 함수로 사용자 지정 헤더를 전달하려면 본문 매핑 템플릿을 사용하여야 합니다. (https://aws.amazon.com/ko/premiumsupport/knowledge-center/custom-headers-api-gateway-lambda/)
 따라서, 아래와 같이 application/json을 content-type으로 추가 합니다.
 
-1) [API:api-storytime] - [Resouces] - [/
-![image](https://user-images.githubusercontent.com/52392004/157035881-87c09b13-39a2-4262-8299-a1f8ef36bcf1.png)
+[API:api-storytime] - [Resouces] - [/retrieve] - [GET] - [Integration Request]로 진입합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157037998-f600fa6a-6a14-43c7-98c3-2417e179856b.png)
 
 
+21) [Mapping Templates]에서 아래와 같이 application/json을 추가하고, [Generate template]에서 [Method request passthrough] 을 추가합니다. 
+
+
+[주의] HTTP GET으로 API Gateway - Lambda 호출시 상기 정의한 "Content-Type: Application/json"을 추가하여야 합니다. 
+
+예) curl -i https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev/getResult -X GET -H 'ETag: 005e260b-7b3e-4904-b500-9853fc40a273' -H 'Timestamp: 1646580038' -H 'Content-Type: application/json'
+ 
