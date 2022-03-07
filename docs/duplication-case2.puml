@@ -44,7 +44,7 @@ dynamoDB -> lambda -- : 200OK\n(UUID, Json, Text, URL)
 lambda -> api : 200OK (UUID)
 api -> user: 200OK (UUID)
 
-lambda -> sqsRekognition -- : Send message\n(UUID, Json, Text, URL)
+lambda -> sqsRekognition -- : Enqueue\n(UUID, Json, Text, URL)
 
 
 @enduml
