@@ -30,8 +30,8 @@ api -> lambda ++: Invokes lambda (UUID)
 lambda -> dynamoDB ++ : Query UUID
 dynamoDB -> lambda -- : 200OK\n(Json, Text, empty URL)
 
-lambda -> api : 503 (Retry-After:300)
-api -> user: 503 (Retry-After:300)
+lambda -> api : 503 (Retry-After:60)
+api -> user: 503 (Retry-After:60)
 
 lambda -> sqsRekognition  --: Request event\n (Json, Text, empty URL)
 
