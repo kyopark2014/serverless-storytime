@@ -39,7 +39,7 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 [Abnormal Case - Duplicated request]
 
-![image](https://user-images.githubusercontent.com/52392004/156954916-36082ced-3c03-431b-bfd6-44a60d159d28.png)
+![image](https://user-images.githubusercontent.com/52392004/156955425-c0e9dd45-58df-478c-9f75-ac3b2a256ced.png)
 
 [Abnormal Case - Fail over]
 
