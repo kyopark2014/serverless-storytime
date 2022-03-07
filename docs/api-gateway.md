@@ -135,3 +135,12 @@ https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev
 ![image](https://user-images.githubusercontent.com/52392004/156932902-e4c99801-e447-4124-865f-6d0279e60eb9.png)
 
 
+## Troubleshooting - Header 처리
+
+Lambda 함수는 API Gateway API 요청에서 수신하는 메서드 요청 본문만 처리합니다. 따라서, API Gateway API에서 Lambda 함수로 사용자 지정 헤더를 전달하려면 본문 매핑 템플릿을 사용하여야 합니다. (기본적으로 Lambda 함수는 API Gateway API 요청에서 수신하는 메서드 요청 본문만 처리합니다. API Gateway API에서 Lambda 함수로 사용자 지정 헤더를 전달하려면 본문 매핑 템플릿을 사용)
+따라서, 아래와 같이 application/json을 content-type으로 추가 합니다.
+
+1) [API:api-storytime] - [Resouces] - [/
+![image](https://user-images.githubusercontent.com/52392004/157035881-87c09b13-39a2-4262-8299-a1f8ef36bcf1.png)
+
+
