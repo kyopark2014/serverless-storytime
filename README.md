@@ -47,7 +47,7 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 여러가지 이유로 요청이 정상적으로 처리되지 않은 경우가 있습니다. 이 경우에 사용자 요청으로 Client에사 다시 요청하면 기등록된 컨텐츠가 있으나, DynamoDB에 완성된 결과가 없을 수 있습니다. 이런 경우에 DynamoDB에서 조회하여 얻은 AWS Rekognition의 결과인 JSON 데이터와 Lambda가 추출한 Text, AWS Polly가 텍스트를 음성파일(MP3)로 변환하고 S3에 저장하여 CloudFront을 통해 외부에서 접속 가능한 URL을 SQS에 Event로 저장합니다. 이렇게 하면 Event는 정상적인 Event와 동일하게 흐르지만, AWS Rekognition, Lambda의 Text 추출 , AWS Polly는 해당 데이터가 있는 경우에 skip 하므로 전체적인 프로세스 개선 효과가 있습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156977806-eedde52b-8d63-49c8-be1e-bc2cdbc569bc.png)
+![image](https://user-images.githubusercontent.com/52392004/156978791-d1166143-f63f-4036-94ae-69b3f9d4f008.png)
 
 ### Retrieve API
 
@@ -57,7 +57,9 @@ User가 Polling 하거나, 사용자 동작으로 결과 조회를 하게될 경
 
 Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확인 할 수 없는 경우가 있습니다. 아래 케이스는 Retrive로 조회시 DynamoDB에 AWS Rekognition 수행결과(Json)과 Lambda의 Text Extraction 결과(Text)는 있으나 AWS Polly가 수행한 결과가 없는 경우입니다. 이 경우에, Lambda는 User에 503 (Retry-After:60)을 전달하여 60초 후에 재시도 하도록 정보를 전달하고, SQS에 Event에 대한 정보를 전달하여, AWS Polly가 다시 Text를 음성파일(MP3)로 변환하도록 요청합니다. 이러한 과정을 통해 Fail over 처리가 가능합니다. 여기서, User가 이미지를 업로드하고 즉시 Retrieve 하는 케이스에 있다면, 중복으로 요청 될 수 있으므로, Retrieve API로 요청이 왔을때 이전 Upload Request와의 시간이 일정시간(60초)이내인 경우에만 SQS에 요청을 합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/156956984-398f571f-d936-4d44-a05e-49d72e2a369a.png)
+
+![image](https://user-images.githubusercontent.com/52392004/156978676-4380c055-edf6-4ba8-8875-a1db1422cd3c.png)
+
 
 ## Modules
 
