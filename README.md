@@ -45,7 +45,7 @@ Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly�
 
 [Abnormal Case - Fail over]
 
-여러가지 이유로 요청이 정상적으로 처리되지 않은 경우가 있습니다. 이 경우에 사용자 요청으로 Client에사 다시 요청하면 기등록된 컨텐츠가 있으나, DynamoDB에 완성된 결과가 없을 수 있습니다. 이런 경우에 DynamoDB에서 조회하여 얻은 AWS Rekognition의 결과인 JSON 데이터와 Lambda가 추출한 Text, AWS Polly가 텍스트를 음성파일(MP3)로 변환하고 S3에 저장하여 CloudFront을 통해 외부에서 접속 가능한 URL을 SQS에 Event로 저장합니다. 이렇게 하면 Event는 정상적인 Event와 동일하게 흐르지만, AWS Rekognition, Lambda의 Text 추출 , AWS Polly는 해당 데이터가 있는 경우에 skip 하므로 전체적인 프로세스 개선 효과가 있습니다. 
+여러가지 이유로 요청이 정상적으로 처리되지 않은 경우가 있습니다. 이 경우에 사용자가 Retrieve로 상태 확인시에 기등록된 컨텐츠가 있으나, DynamoDB에 완성된 결과가 없을 수 있습니다. 이런 경우에 DynamoDB에서 조회하여 얻은 Json(AWS Rekognition의 결과), Text(Lambda가 추출한 Text), URL(AWS Polly가 텍스트를 음성파일(MP3)로 변환하고 S3에 저장후, CloudFront을 통해 외부에서 접속 가능한 URL)을 SQS에 Event로 저장합니다. 이렇게 하면 Event는 정상적인 Event와 동일하게 흐르지만, AWS Rekognition, Lambda의 Text 추출 , AWS Polly는 해당 데이터가 있는 경우에 skip 하므로 전체적인 프로세스 개선 효과가 있습니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/156978791-d1166143-f63f-4036-94ae-69b3f9d4f008.png)
 
