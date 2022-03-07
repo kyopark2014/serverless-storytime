@@ -1,7 +1,7 @@
 # 9. 테스트 및 결과
 
  
-## 시험방법
+## 시험방법1 (Upload)
 
 1) Postman에서 시험하는 경우에 아래와 같이 Content-Type과 Content-Disposition을 설정후, Binary를 첨부하여 테스트 합니다. 
 
@@ -39,7 +39,7 @@ x-amzn-trace-id: Root=1-621232c8-37a90762301f99e01dc8c15e;Sampled=0
 
 상단의 화살표 모양의 아이콘을 선택하여 발송하고 메일로 정상적으로 mp3로 된 음성파일이 들어오는지 확인합니다.
 
-## 결과 
+### 결과 
 
 아래와 같이 지정된 메일로 링크를 포함한 결과가 전달됩니다. 링크 선택시 CloudFront를 통해 다운로드된 컨텐츠가 정상적으로 재생되는것을 확인합니다.
 
@@ -53,3 +53,11 @@ Sample : https://github.com/kyopark2014/simple-serverless-voicebookcreator/blob/
 
 Result : https://github.com/kyopark2014/simple-serverless-voicebookcreator/blob/main/sample-result.mp3
       
+## 시험방법2 (Retrieve)
+
+### Curl을 이용한 시험방법 
+
+Retrieve는 Upload API 이후에 수행되므로 ETag을 통해 event의 ID와 시간(timestamp)를 알수 있습니다. 이 두 값은 DynamoDB에 해당 event를 저장시 Partition key와 Sort key로 사용되므로, Retrive 조회시 반드시 Header로 포함되어야 합니다. 따라서 아래와 같이 curl로 조회시 ETag와 Timestamp를 추가 합니다. 또한, API Gateway - Lambda 사용시 Header값을 전달하기 위하여 "Content-Type:  application/json"을 포함합니다. 
+
+# curl -i https://8bxfftack4.execute-api.ap-northeast-2.amazonaws.com/dev/getResult -X GET -H 'ETag: 005e260b-7b3e-4904-b500-9853fc40a273' -H 'Timestamp: 1646580038' -H 'Content-Type: application/json'
+
