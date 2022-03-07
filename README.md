@@ -29,15 +29,17 @@
 
 ### 중복 요청 처리
 
-사용자가 중복으로 이미지를 등록하여 요청하거나, 인터넷에서 공유된 이미지 컨텐츠를 가지고 요청을 할 경우에 동일한 데이터에 대한 중복처리를 하면 응답을 개선하여 사용성을 좋게하고, AWS Rekognition, Polly에 대한 비용을 줄일수 있는 효과가 있습니다. 이를 위해, 이미지가 Upload가 되면 Lambda는 Hashing을 통해  ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
+사용자가 중복으로 이미지를 등록하여 요청하거나, 인터넷에서 공유된 이미지 컨텐츠를 가지고 요청을 할 경우에 동일한 데이터에 대한 중복처리를 하면 응답을 개선하여 사용성을 좋게하고, AWS Rekognition, Polly에 대한 비용을 줄일수 있는 효과가 있습니다. 
 
 [Normal Case - 중복인지 확인]
 
+이미지가 Upload가 되면 Lambda는 Hashing을 통해  ContentID를 생성하고, 동일한 ContentID가 있는지, DynnamoDB를 조회합니다. 동일한 ContentID가 없다면, UUID를 생성하고, 등록된 이미지에 대한 Bucket과 Key정보를 SQS에 Event 메시지로 등록합니다. 
+
 ![image](https://user-images.githubusercontent.com/52392004/156917347-9035331b-703b-4900-b1fa-fe84721b870e.png)
 
-Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly로 계산된 결과가 있다면, DynamoDB 조회를 통해 확인 할 수 있습니다. Lambda는 UUID를 새로 생성하지 않고 이전 등록된 이미지에 대한 UUID를 User에게 전달하고, 요청을 새로 생성하지 않고 바로 SNS을 통해 Email Notification을 수행합니다.
-
 [Abnormal Case - Duplicated request]
+
+Upload된 이미지가 중복되었고, 과거에 AWS Rekognition과 AWS Polly로 계산된 결과가 있다면, DynamoDB 조회를 통해 확인 할 수 있습니다. Lambda는 UUID를 새로 생성하지 않고 이전 등록된 이미지에 대한 UUID를 User에게 전달하고, 요청을 새로 생성하지 않고 바로 SNS을 통해 Email Notification을 수행합니다.
 
 ![image](https://user-images.githubusercontent.com/52392004/156955425-c0e9dd45-58df-478c-9f75-ac3b2a256ced.png)
 
