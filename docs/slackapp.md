@@ -48,17 +48,15 @@ https://api.slack.com/apps?new_app=1
 ![noname](https://user-images.githubusercontent.com/52392004/157288132-d4bec3fb-c13e-4aed-b6ed-d773d190b659.png)
 
 
-8) 복사한 Token은 [Lambda] - [Functions] - [labda-storytime-for-slack]의 [Configuration] - [Environment variables] 
+8) 복사한 Token은 [Lambda] - [Functions] - [labda-storytime-for-slack]의 [Configuration] - [Environment variables]로 이등해서 등록하여 사용하여야 합니다.
 
 ![image](https://user-images.githubusercontent.com/52392004/157288467-cb25bb5b-de44-486a-939e-cd0b84c100ab.png)
 
-
+아래와 같이 "to
 ![noname](https://user-images.githubusercontent.com/52392004/157288667-ce95b61f-2694-4a03-8bce-e4d94e24228d.png)
 
 
 
-
-![image](https://user-images.githubusercontent.com/52392004/157286847-582632c3-ded9-49d0-ad58-d5ec2b00650a.png)
 
 
 
