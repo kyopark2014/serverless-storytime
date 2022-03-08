@@ -70,7 +70,22 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 ```
 
 
+## App-Level Tokens
 
+왼쪽 메뉴에서 [Basic Information]을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189524-576380db-fb29-495b-a623-3acc3c08be06.png)
+
+아래로 스크롤하여 App-Level Tokens로 이동합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189174-8ab9fdf1-c5db-4049-9ca2-a902ebb20d90.png)
+
+[Generate Token and Scopes]를 선택후 [connection:write] 선택합니다 이후 [Generate]를 선택해서 아래와 같이 Token을 생성합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189259-51e094e2-4b4b-461b-abbe-4020a384c0f3.png)
+
+
+![image](https://user-images.githubusercontent.com/52392004/157189431-b6d4cdd4-3452-40d9-8c2a-838f6be02db0.png)
 
 
 
