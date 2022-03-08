@@ -104,7 +104,7 @@ DynamoDB에는 파일의 중복을 판단하는 정보와 event에 대한 정보
 
 이미지 파일 업로드 Client에서 Polling 하거나 사용자 Action으로 조회시 사용하는 '/retrieve' API를 위한 Lambda를 정의 합니다.
 
-11) Slack으로 메시지 전송하기(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/slackapp.md) 
+11) [Slack으로 전송하기](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/slackapp.md) 
 
 SNS 통한 이메일 뿐 아니라 Slack으로도 결과를 메시지로 받기를 원하는 경우에 설정합니다. 
 
