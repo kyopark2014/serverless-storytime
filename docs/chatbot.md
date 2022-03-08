@@ -69,3 +69,8 @@ Channel ID를 아래와 같이 입력 합니다.
 12) 아래와 같이 생성된 정보를 확인 합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157148118-81581478-94b8-4a8e-b447-a94176ef851c.png)
+
+
+13) SNS에 아래처럼 자동으로 설정이 됩니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157148859-7716aeee-00b7-4959-a141-5bf178cd7b21.png)
