@@ -38,11 +38,25 @@ https://api.slack.com/apps?new_app=1
 
 https://hooks.slack.com/services/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
 
-7) 왼쪽 메뉴의 [OAuth & Permissions]을 선택하여 아래의 [OAuth Tokens for Your Workspace]가 나오면, [Copy]를 선택하여, Bot User OAuth Token을 복사합니다. 
+7) App-Level Token 생성하기 
 
-![image](https://user-images.githubusercontent.com/52392004/157185915-f0a2e954-c825-4368-8030-40ef822be353.png)
+왼쪽 메뉴에서 [Basic Information]을 선택합니다. 
 
-선택된 Token은 "xoxb-3205298473938-3206320920019-XlDOg1AczKmLsn0vUWKr3ls1" 입니다. 
+![image](https://user-images.githubusercontent.com/52392004/157189524-576380db-fb29-495b-a623-3acc3c08be06.png)
+
+아래로 스크롤하여 App-Level Tokens로 이동합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189174-8ab9fdf1-c5db-4049-9ca2-a902ebb20d90.png)
+
+[Generate Token and Scopes]를 선택후 [connection:write] 선택합니다 이후 [Generate]를 선택해서 아래와 같이 Token을 생성합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189259-51e094e2-4b4b-461b-abbe-4020a384c0f3.png)
+
+
+[Copy]를 선택하여 복사해 놓습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157189431-b6d4cdd4-3452-40d9-8c2a-838f6be02db0.png)
+
 
 8) curl로 동작 확인 
 
@@ -70,22 +84,6 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 ```
 
 
-## App-Level Tokens
-
-왼쪽 메뉴에서 [Basic Information]을 선택합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189524-576380db-fb29-495b-a623-3acc3c08be06.png)
-
-아래로 스크롤하여 App-Level Tokens로 이동합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189174-8ab9fdf1-c5db-4049-9ca2-a902ebb20d90.png)
-
-[Generate Token and Scopes]를 선택후 [connection:write] 선택합니다 이후 [Generate]를 선택해서 아래와 같이 Token을 생성합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189259-51e094e2-4b4b-461b-abbe-4020a384c0f3.png)
-
-
-![image](https://user-images.githubusercontent.com/52392004/157189431-b6d4cdd4-3452-40d9-8c2a-838f6be02db0.png)
 
 
 
