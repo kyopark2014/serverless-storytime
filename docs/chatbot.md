@@ -109,6 +109,9 @@ https://ap-northeast-2.console.aws.amazon.com/sns/v3/home?region=ap-northeast-2#
 
 17) 명령어 수행 
 
+```c
+@aws ec2 stop-instances --instance-ids i-0044d7724ddb0c130 --region ap-mortheast-2
+```
 
 <img width="360" alt="image" src="https://user-images.githubusercontent.com/52392004/157152624-e039f0f0-21b3-423e-8afc-dcb48ff7824a.png">
 
