@@ -70,12 +70,12 @@ https://ap-northeast-2.console.aws.amazon.com/sns/v3/home?region=ap-northeast-2#
 
 ![image](https://user-images.githubusercontent.com/52392004/157143178-caf5f14f-8ce0-4968-bc39-4edab6b7dca7.png)
 
-12) SNS Topics에서 기생성한 "sns-chatbot"을 선택하고 [Configure]를 선택합니다.
+11) SNS Topics에서 기생성한 "sns-chatbot"을 선택하고 [Configure]를 선택합니다.
 
 ![image](https://user-images.githubusercontent.com/52392004/157143752-b4d05700-1ff2-4615-a03c-bcb451f10ee3.png)
 
 
-13) slack 화면의 #storytime으로 이동하여 aws chatbot을 아래 명령으로 등록합니다. 
+12) slack 화면의 #storytime으로 이동하여 aws chatbot을 아래 명령으로 등록합니다. 
 
 ```c
 /invite @aws
@@ -83,12 +83,44 @@ https://ap-northeast-2.console.aws.amazon.com/sns/v3/home?region=ap-northeast-2#
 
 만약, aws로 입력시 chatbot 이름이 보여지지 않으면 chatbot configure가 잘 설정되었는지 확인 합니다. 
 
-14) 아래와 같이 생성된 정보를 확인 합니다. 
+13) 아래와 같이 생성된 정보를 확인 합니다. 
 
 ![noname](https://user-images.githubusercontent.com/52392004/157150599-b855602c-32cb-486d-bb2e-704bd885d037.png)
 
 
+14) 다시 chatbot으로 아래와 같이 이동하여 "slack-storytime"을 선택합니다. 
 
-13) SNS에 아래처럼 자동으로 설정이 됩니다. 
+![image](https://user-images.githubusercontent.com/52392004/157152041-7e9de8b5-dd00-49a2-a2e5-13ad1dfa1aae.png)
+
+
+15) [Send test messages]를 선택하여 동작을 확인 합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/157152196-5148a650-22a6-427d-8ea7-b6232f29e82c.png)
+
+정상적으로 동작하면 아래처럼 챗봇 메시지를 확인할 수 있습니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/157152349-af235cb4-0c3c-40af-9ed9-2d1773fb7fc9.png)
+
+
+16) 참고로 SNS는 아래처럼 자동으로 설정이 됩니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157148859-7716aeee-00b7-4959-a141-5bf178cd7b21.png)
+
+
+17) 명령어 수행 
+
+
+<img width="360" alt="image" src="https://user-images.githubusercontent.com/52392004/157152624-e039f0f0-21b3-423e-8afc-dcb48ff7824a.png">
+
+
+
+
+
+
+
+
+## Reference
+
+[HowTo]Slack에서 채팅만으로 EC2를 중지시킬 수 있다고? (5분만에 Slack에서 AWS CLI 사용하는 방법)
+
+https://www.youtube.com/watch?v=-Jku6JQtrqQ
