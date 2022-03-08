@@ -52,74 +52,22 @@ https://api.slack.com/apps?new_app=1
 
 ![image](https://user-images.githubusercontent.com/52392004/157288467-cb25bb5b-de44-486a-939e-cd0b84c100ab.png)
 
-아래와 같이 "to
+아래와 같이 "token"이라는 key로 등록합니다. 
 ![noname](https://user-images.githubusercontent.com/52392004/157288667-ce95b61f-2694-4a03-8bce-e4d94e24228d.png)
 
+소스를 코드에 넣어서 Github에 공유시 계정 사용이 자동으로 안되오니 주의 바랍니다. 
 
 
+9) Slack의 "storytime" channel에서 아래와 같이 "/invite @storybot" 이라고 입력해서 chatbot을 등록 합니다. 
+
+<img width="638" alt="image" src="https://user-images.githubusercontent.com/52392004/157290277-00aabff5-b122-4aa9-80b7-a7a3d87ebd23.png">
 
 
+10) storytime서버에 이미지를 전송하면 slat으로 아래처럼 전달되는지 확인 합니다. 
 
 
+![noname](https://user-images.githubusercontent.com/52392004/157291591-2d46f158-84a6-47f7-9798-384bee210c37.png)
 
-
-
-5) [Where should storytimeBot post?]에서 사용할 Channel을 선택합니다. 여기서는 Slack에서 미리 생성한 "storytime" Channel을 선택하였습니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157185380-790a19d2-f38b-4c9f-a083-1381a85b1abe.png)
-
-6) 아래와 같이 [Copy]를 선택하여 Webhook URL을 복사합니다. 
-
-![noname](https://user-images.githubusercontent.com/52392004/157185631-c6375929-c1e9-40ce-b907-a366c364a6f5.png)
-
-복사된 URL은 아래와 같습니다. 
-
-https://hooks.slack.com/services/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
-
-7) App-Level Token 생성하기 
-
-왼쪽 메뉴에서 [Basic Information]을 선택합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189524-576380db-fb29-495b-a623-3acc3c08be06.png)
-
-아래로 스크롤하여 App-Level Tokens로 이동합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189174-8ab9fdf1-c5db-4049-9ca2-a902ebb20d90.png)
-
-[Generate Token and Scopes]를 선택후 [connection:write] 선택합니다 이후 [Generate]를 선택해서 아래와 같이 Token을 생성합니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189259-51e094e2-4b4b-461b-abbe-4020a384c0f3.png)
-
-
-[Copy]를 선택하여 복사해 놓습니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157189431-b6d4cdd4-3452-40d9-8c2a-838f6be02db0.png)
-
-
-8) curl로 동작 확인 
-
-```c
-curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
-```
-
-9) Lambda에 코드 삽입하기 
-
-```c
-  	const Slack = require('slack-node'); 
-  	const token = 'xoxb-3205298473938-3206320920019-XlDOg1AczKmLsn0vUWKr3ls1';
-  	const slack = new Slack(token); 
-  	const webhookUri = "https://hooks.slack.com/services/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"; 
-
-	slack.setWebhook(webhookUri); 
-
-	slack.webhook( 
-	{ 
-		"text": "Message from storytime to slack", 
-	}, (err, response) => { 
-		if (err) { console.log(response) } 
-		else { console.log('slack: '+response) } 
-	});
-```
 
 
 
