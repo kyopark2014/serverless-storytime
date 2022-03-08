@@ -15,16 +15,56 @@ https://api.slack.com/apps?new_app=1
 
 2) [Name app & choose workspace]에서 App Name으로 "storytimeBot"으로 입력하고, [Pick a workspace to develop your app in:] 에서 현재 사용하고 있는 Slack의 Workspace를 지정한다. 여기서는 본 데모를 위해 "Storytime"이라는 workspace를 위해 생성 하였습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157184365-9a6a9881-49d7-4e9e-aebf-8fb24b19dc66.png)
-
-3) [Incoming Webhooks]를 선택하고, 아래 화면이 나오면, [Activate Incoming Webhooks]를 선택해서 "Off"에서 "On"으로 바꿉니다. 
-
-![image](https://user-images.githubusercontent.com/52392004/157184975-9210a3ab-0542-4456-a5ac-286bb5976d22.png)
+![image](https://user-images.githubusercontent.com/52392004/157285816-58c80e97-80df-4696-8768-b8ad2d8a0b37.png)
 
 
-4) 아래화면에서 [Add New Webhook to Workspace]를 선택합니다.
+3) 왼쪽 메뉴에서 OAuth&Permission을 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157185112-b9ea800b-cbb6-4e90-9022-77cb801ddbea.png)
+![image](https://user-images.githubusercontent.com/52392004/157286724-79aaa7f6-d82c-45e3-bd95-4ef80d108aac.png)
+
+
+
+4) 아래로 스크롤하여 [Scopes] - [Bot Token Scopes]에서 [Add on OAuth Scope]를 선택합니다. 
+
+
+![image](https://user-images.githubusercontent.com/52392004/157287089-ac2d7110-17c8-4435-9bd1-072c320e340d.png)
+
+아래로 이동해 "Chat:write"을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157287258-065ba58b-bad6-4d91-b313-f846030de49d.png)
+
+5) [OAuth Tokens for Your Workspace] 에서 [Install to Workspace]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157287472-097940ce-6cf7-4ba3-8f93-ffca0db11a85.png)
+
+
+6) [Allow] 를 선택합니다.
+
+![image](https://user-images.githubusercontent.com/52392004/157287660-0e27acea-4343-4efd-8b7a-200faba26fd5.png)
+
+
+7) 아래처럼 화면이 전환되면 [Bot User OAuth Token]을 복사 합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/157288132-d4bec3fb-c13e-4aed-b6ed-d773d190b659.png)
+
+
+8) 복사한 Token은 [Lambda] - [Functions] - [labda-storytime-for-slack]의 [Configuration] - [Environment variables] 
+
+![image](https://user-images.githubusercontent.com/52392004/157288467-cb25bb5b-de44-486a-939e-cd0b84c100ab.png)
+
+
+![noname](https://user-images.githubusercontent.com/52392004/157288667-ce95b61f-2694-4a03-8bce-e4d94e24228d.png)
+
+
+
+
+![image](https://user-images.githubusercontent.com/52392004/157286847-582632c3-ded9-49d0-ad58-d5ec2b00650a.png)
+
+
+
+
+
+
 
 5) [Where should storytimeBot post?]에서 사용할 Channel을 선택합니다. 여기서는 Slack에서 미리 생성한 "storytime" Channel을 선택하였습니다. 
 
