@@ -6,7 +6,8 @@
 
 책 읽어주는 서비스(Storytime)는 이미지에서 텍스트를 추출하는 AWS Rekognition과 텍스트를 음성으로 변환하는 AWS Polly을 이용하여 구현됩니다. 이러한 Machine Learning기반의 AWS 서비스를 사용하여 비용효율적인 시스템 아키텍처를 설계하기 위하여 AWS Lambda와 AWS SQS를 적극적으로 사용합니다. 이와 같은 AWS Serverless Architecture는 초기 투자가 없어 비용 효율적이며, auto scaling을 통해 트래픽 변화에 대해서도 적절히 대응할 수 있습니다. 아래 그림은 Story Time의 Severless Event-Driven Architecture에 구조에 대해 기술하고 있습니다. 
 
-<img width="1418" alt="image" src="https://user-images.githubusercontent.com/52392004/157039908-1fdb4575-3cf5-450a-ae0d-28d8457b9809.png">
+<img width="1423" alt="image" src="https://user-images.githubusercontent.com/52392004/157292525-61c11278-b516-4428-a1bc-690a8114aebd.png">
+
 
 
 주요 사용 시나리오는 아래와 같습니다.
@@ -20,7 +21,7 @@
 
 4) 텍스트 정보는 다시 SQS를 통해 Lambda for Polly로 전달되는데, JSON 형식의 event에서 텍스트틑 추출하여, AWS Polly를 통해 음성파일로 변환하게 됩니다.
 
-5) 음성파일은 S3에 저장되는데, Lambda for Polly를 이 정보를 CloudForont를 통해 외부에 공유할 수 있는 URL로 변환후, AWS SNS를 통해 사용자에게 이메일로 정보를 전달합니다. 
+5) 음성파일은 S3에 저장되는데, Lambda for Polly를 이 정보를 CloudForont를 통해 외부에 공유할 수 있는 URL로 변환후, AWS SNS를 통해 사용자에게 이메일 또는 Slack으로 전달합니다. 
 
 사진 전송후 AWS Rekognition과 AWS Polly를 통해 음성파일(mp3)로 전환되는 동작 시나리오는 아래의 Sequence Diagram을 참고 부탁드립니다. 
 
@@ -103,7 +104,7 @@ DynamoDB에는 파일의 중복을 판단하는 정보와 event에 대한 정보
 
 이미지 파일 업로드 Client에서 Polling 하거나 사용자 Action으로 조회시 사용하는 '/retrieve' API를 위한 Lambda를 정의 합니다.
 
-11) Slack으로 메시지 전송하기(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/slack-to-send.md) 
+11) Slack으로 메시지 전송하기(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/slackapp.md) 
 
 SNS 통한 이메일 뿐 아니라 Slack으로도 결과를 메시지로 받기를 원하는 경우에 설정합니다. 
 
