@@ -53,10 +53,10 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 9) Lambda에 코드 삽입하기 
 
 ```c
-  const Slack = require('slack-node'); 
-  const token = 'xoxb-3205298473938-3206320920019-XlDOg1AczKmLsn0vUWKr3ls1';
-  const slack = new Slack(token); 
-  const webhookUri = "https://hooks.slack.com/services/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"; 
+  	const Slack = require('slack-node'); 
+  	const token = 'xoxb-3205298473938-3206320920019-XlDOg1AczKmLsn0vUWKr3ls1';
+  	const slack = new Slack(token); 
+  	const webhookUri = "https://hooks.slack.com/services/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"; 
 
 	slack.setWebhook(webhookUri); 
 
