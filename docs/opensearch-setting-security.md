@@ -1,4 +1,4 @@
-# Opensearch
+# Opensearch Troubleshooting - Security
 
 [Opensarch Dashboard](https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#opensearch/dashboard)에 접속시에 
 아래와 같이 [Amazon OpenSearch Service] - [Domains] - [storytime]에서 Cluster health 진입시 403 에러가 발생할때 처리하는 방법은 아래와 같습니다. 
