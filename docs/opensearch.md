@@ -214,9 +214,63 @@ https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeas
 
 ![image](https://user-images.githubusercontent.com/52392004/157355249-6fc15ac0-d172-4f50-9909-7fea2c27a4ae.png)
 
-[Configure log format and filters]는 "Amazon Lambda"를 선택합니다. 
+[Configure log format and filters]는 "Amazon Lambda"를 선택하고 [Subscription filter name]은 "opensearch"와 같이 적당한 이름을 입력합니다. 이후 하단의 [Start streaming]을 입력합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157355366-84b0f8e0-9468-4dbb-a4a3-47b7743015b3.png)
+![image](https://user-images.githubusercontent.com/52392004/157432043-038cd232-04c4-40c9-8783-9287abd1d2a5.png)
+
+같은 방법으로 모든 Lambda의 로그를 subscription 합니다. 
+
+
+
+## Lambda 동작 확인하기 
+
+1) Curl이나 Postman으로 사진을 업로드하여 동작을 해봅니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157433134-46fb9c4d-82bd-4421-af96-94be09296207.png)
+
+2) Lambda Console에 접속하면 아래와 같이 "LogsToElasticsearch_opensearch-storytime"이라는 Lambda가 자동으로 생성된것을 알수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157433485-e00df888-1fa7-4f94-9f6a-0f3cba0cf037.png)
+
+3) "LogsToElasticsearch_opensearch-storytime"으로 접속하여 [Monitor] - [Logs]를 가면 아래와 같이 조금전 테스트로 생성된 로그를 볼 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157433564-be4a1e26-bb88-4b48-b21d-614b1245439a.png)
+
+4) [Views CloudWatch]를 선택하면 아래와 같이 Log stream에서 로그를 확인할 수 있습니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/157433983-1994e628-b404-4d72-9414-5aa0af99608a.png)
+
+Log stream을 들어가면 "Invoke Error"를 확인할 수 있습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157434198-a3c60758-4d9f-4c81-8982-64776550fa89.png)
+
+5) OpenSearch를 실행하여 왼쪽 메뉴의 [Stack management]로 이동합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157434486-ce86d24c-a72a-426e-b689-b20857e20d42.png)
+
+6) [OpenSearch Dashboards] - [Index Patterns]를 선택 후, 아래와 같은 화면이 나오면, [Create Index pattern]을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157434817-8173f23f-2326-41bc-91e7-2a63fd6d6ca5.png)
+
+
+7) [Create index pattern] - [Step 1 of 2: Define an index pattern]에서 '\*'을 입력하고 [Next step]을 선택합니다.  
+
+![image](https://user-images.githubusercontent.com/52392004/157434879-800d1ef5-0e96-458e-905b-fc1a0cedd5d4.png)
+
+8) [Step 2 of 2: Configure settings] - [Time field]에서 "@timestamp"을 선택하고 [Create index pattern]을 선택합니다.  
+
+
+
+9) 왼쪽 메뉴의 [OpenSearch Dashboards] - [Discover]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157435473-f351e4fb-18da-4d65-8673-ecab93c24b73.png)
+
+10) 아래와 같은 로그 화면이 나오면 정상적으로 OpenSearch가 설치된 것 입니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157435790-71a52ef9-6e71-48c5-9e72-e7be30cebad2.png)
+
+
+
 
 
 
