@@ -120,7 +120,7 @@ https://us-east-1.console.aws.amazon.com/iamv2/home#/home
 
 9) Opensearch-storytime Role이 생성되면 아래와 같이 ARN을 복사합니다. 여기서는 "arn:aws:iam::****:role/Opensearch-storytime" 입니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157429863-dd125e86-5a09-4764-9b1b-f161e6c1e0bf.png)
+![noname](https://user-images.githubusercontent.com/52392004/157431327-dd3f5345-4db2-492f-ab7b-5828d282f6f1.png)
 
 
 
@@ -192,7 +192,7 @@ User ARN의 예: arn:aws:iam::****:user/id
 
 Role ARN의 예: arn:aws:iam::****:role/Opensearch-storytime
 
-![image](https://user-images.githubusercontent.com/52392004/157430637-e79e6f35-e010-4c6a-8009-f1bc2cf53408.png)
+![noname](https://user-images.githubusercontent.com/52392004/157431602-cf1f8970-68e0-4427-abd1-dbe4bd907163.png)
 
 
 
