@@ -12,13 +12,16 @@
 
 https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#opensearch
 
-[Name]으로 "storytime"을 입력합니다. 
+[Name]으로 "opensearch-storytime"을 입력합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157356672-c5a4f37c-705a-4e52-a2a9-3ba6956e95c6.png)
+![image](https://user-images.githubusercontent.com/52392004/157415437-b6833f20-165b-4b81-8cd5-32aee59b39d1.png)
+
+
 
 [Deployment type]에서 [Development and testing]을 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157356736-3ced06a1-8475-4640-b527-09faaf501952.png)
+
 
 [Data nodes]에서 [Instance type\과 [EBS storage size per node]을 설정합니다. 
 
@@ -32,8 +35,16 @@ https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#op
 
 ![image](https://user-images.githubusercontent.com/52392004/157357235-3353eb77-566a-4dc4-ac70-61cf912a603f.png)
 
+[Access policy]는 아래와 같이 [Configure domain level access policy]를 선택하고 [Action]을 "Deny"에서 "Allow"로 변경합니다. 
+
+
+
+![image](https://user-images.githubusercontent.com/52392004/157415719-2230de0d-2c09-4b0a-896b-06f415a0a63b.png)
+
 
 나머지 설정은 유지하고 [Create] 버튼을 눌려서 Opensearch를 생성합니다. 
+
+
 
 
 
