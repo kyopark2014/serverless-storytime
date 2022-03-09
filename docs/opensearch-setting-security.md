@@ -1,12 +1,10 @@
 # Opensearch
 
+[Opensarch Dashboard](https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#opensearch/dashboard)에 접속시에 
 아래와 같이 [Amazon OpenSearch Service] - [Domains] - [storytime]에서 Cluster health 진입시 403 에러가 발생할때 처리하는 방법은 아래와 같습니다. 
 
 ![noname](https://user-images.githubusercontent.com/52392004/157371708-670d8261-4992-49c4-8605-dd217adfb089.png)
 
-Opensarch Dashboard
-
-https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#opensearch/dashboard
 
 1) 자신의 ARN 확인 
 
@@ -29,7 +27,8 @@ https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#op
 
 5) 복사한 자신의 ARN을 아래와 같이 입력하고 [Map]을 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157371922-688c1955-cd12-4299-b58d-27845fc0cd68.png)
+![noname](https://user-images.githubusercontent.com/52392004/157372566-7526f11b-5564-471b-a2da-a21cf30371ee.png)
+
 
 6) 다시 OpenSearch Dashboard에 가서 "storytime"을 선택한후에 [Cluster health]에서 에러없이 보여지는지 확인합니다. 
 
