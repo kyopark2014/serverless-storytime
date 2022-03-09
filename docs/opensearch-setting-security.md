@@ -35,3 +35,6 @@
 ![image](https://user-images.githubusercontent.com/52392004/157372335-77cccb39-edda-4e5e-b16d-a2421dfbe89d.png)
 
 
+## Reference 
+
+[[AWS] Elasticsearch — No Permissions for [cluster:monitor/health]](https://tonylixu.medium.com/aws-elasticsearch-no-permissions-for-cluster-monitor-health-19c9630454f5)
