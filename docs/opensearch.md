@@ -1,4 +1,12 @@
-# Opensearch 설치
+# OpenSearch 구성  
+
+
+모니터링을 위해 Amazon OpenSearch를 아래와 같이 구성합니다. 
+
+<img width="554" alt="image" src="https://user-images.githubusercontent.com/52392004/157412681-9537ef38-cd3f-4671-b032-52d22ad7507e.png">
+
+
+
 
 1. Opensearch console로 이동하여 [Create domain]을 선택합니다. 
 
