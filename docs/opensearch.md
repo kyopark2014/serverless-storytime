@@ -6,6 +6,127 @@
 <img width="554" alt="image" src="https://user-images.githubusercontent.com/52392004/157412681-9537ef38-cd3f-4671-b032-52d22ad7507e.png">
 
 
+## Permission 설정 
+
+OpenSearch가 사용할 Policy와 Role을 아래와 같이 정의 합니다. 
+
+1) IAM Console로 이동합니다. 
+
+https://us-east-1.console.aws.amazon.com/iamv2/home#/home
+
+2) [IAM] - [Policies]에서 [Create Policy]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157427681-6634c57a-1ed5-4f2d-8b73-4b0dca7c240c.png)
+
+3) JSON을 선택하고 아래의 퍼미션으로 덮어 씁니다. 
+
+```java
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:DescribeStacks",
+                "cloudformation:ListStackResources",
+                "cloudwatch:ListMetrics",
+                "cloudwatch:GetMetricData",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "kms:ListAliases",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListRolePolicies",
+                "iam:ListRoles",
+                "lambda:*",
+                "logs:DescribeLogGroups",
+                "states:DescribeStateMachine",
+                "states:ListStateMachines",
+                "tag:GetResources",
+                "xray:GetTraceSummaries",
+                "xray:BatchGetTraces"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "lambda.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "lambda.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:DescribeLogStreams",
+                "logs:GetLogEvents",
+                "logs:FilterLogEvents",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/*"
+        },
+        {
+            "Action": [
+                "es:*"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+[Next: Tags] - [Next: Review]를 차례로 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157428087-ba0556fb-c43e-41bf-8ffd-61b15d6fbe27.png)
+
+4) [Name]에 "OpenSearch-Policy" 입력하고 [Create policy]를 선택합니다. 
+
+
+5) [IAM] - [Roles]를 선택하고 [Create role]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157428564-18a0567d-ed2f-4a21-9931-7eb035b131cb.png)
+
+6) [Select trusted entity] - [Use case]에서 [Lambda]를 선택하고 [Next] 합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157429047-a90b0f9a-74a7-493a-801c-70d53e10dd22.png)
+
+7) 아래처런 "OpenSearch"로 검색한 후, "OpenSearch-Policy]를 선택하고 [Next]를 누릅니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157428983-2fd9d16e-a9d4-475a-a216-edbdf99bc239.png)
+
+8) Role nmae으로 "Opensearch-storytime"를 입력하고 [Create role]을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157429471-d72ac121-ee45-477e-9e87-4f0040072b38.png)
+
+9) Opensearch-storytime Role이 생성되면 아래와 같이 ARN을 복사합니다. 여기서는 "arn:aws:iam::****:role/Opensearch-storytime" 입니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/157429863-dd125e86-5a09-4764-9b1b-f161e6c1e0bf.png)
+
+
+
+
+
+
 ## OpenSearch 설치하기 
 
 1) Opensearch console로 이동하여 [Create domain]을 선택합니다. 
@@ -15,7 +136,6 @@ https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#op
 2) [Name]으로 "opensearch-storytime"을 입력합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157415437-b6833f20-165b-4b81-8cd5-32aee59b39d1.png)
-
 
 
 3) [Deployment type]에서 [Development and testing]을 선택합니다. 
@@ -66,55 +186,37 @@ https://ap-northeast-2.console.aws.amazon.com/esv3/home?region=ap-northeast-2#op
 
 ![image](https://user-images.githubusercontent.com/52392004/157426497-ae1f1e99-ce10-4277-b86b-8d0643fec9d9.png)
 
-6) [Users]에 아래 2개의 계정을 추가합니다. 사용자의 arn은 IAM에서 확인 할수 있습니다. 
+6) [Users]에 User와 Role ARN을 아래와 같이 추가합니다. 사용자의 arn은 IAM에서 확인 할수 있습니다. 
 
-arn:aws:iam::677146750822:user/ksdyb.park 
+User ARN의 예: arn:aws:iam::****:user/id 
 
-arn:aws:iam::677146750822:role/Opensearch-storytime
+Role ARN의 예: arn:aws:iam::****:role/Opensearch-storytime
 
-
-
-
-
-![image](https://user-images.githubusercontent.com/52392004/157073630-385953ec-29ab-4b43-85af-54fa32e436c8.png)
+![image](https://user-images.githubusercontent.com/52392004/157430637-e79e6f35-e010-4c6a-8009-f1bc2cf53408.png)
 
 
-![image](https://user-images.githubusercontent.com/52392004/157073798-e5686ab1-40b6-4960-b630-cad9f071333e.png)
 
 
-![image](https://user-images.githubusercontent.com/52392004/157073880-24513c94-9943-46e9-9097-a092e942079a.png)
 
+## CloudWatch에서 Subscription으로 로그 등록하기 
 
-![image](https://user-images.githubusercontent.com/52392004/157074468-26fe4a7b-f9d4-4721-9a10-0f08cbf16e95.png)
-
-arn:aws:iam::677146750822:role/Opensearch-storytime
-
-
-![image](https://user-images.githubusercontent.com/52392004/157074651-10c913ac-4aa4-4361-9a38-29637c0bc290.png)
-
-![image](https://user-images.githubusercontent.com/52392004/157074747-0c21c2a2-3db5-45b7-a938-411a440ab802.png)
-
-10) CloudWatch에서 Subscription
-
-[CloudWatch] - [Log groups]로 이동합니다. 
+1) [CloudWatch] - [Log groups]로 이동합니다. 
 
 https://ap-northeast-2.console.aws.amazon.com/cloudwatch/home?region=ap-northeast-2#logsV2:log-groups
 
 ![image](https://user-images.githubusercontent.com/52392004/157354820-9b08753a-b3b7-47de-ba37-43ff36b21269.png)
 
-[Actions] - [Subscription filters] - [Create Amazon OpenSearch Service subscription filter]를 선택합니다. 
+2) [Actions] - [Subscription filters] - [Create Amazon OpenSearch Service subscription filter]를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157355099-eb86b87f-4cdb-4d39-81d2-c7ddb42bcf7c.png)
 
-[Choose destination] - [Amazon OpenSearch Service cluster]에서 "opensearch-storytime"을 선택합니다. 
+3) [Choose destination] - [Amazon OpenSearch Service cluster]에서 "opensearch-storytime"을 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157355249-6fc15ac0-d172-4f50-9909-7fea2c27a4ae.png)
 
 [Configure log format and filters]는 "Amazon Lambda"를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157355366-84b0f8e0-9468-4dbb-a4a3-47b7743015b3.png)
-
-
 
 
 
