@@ -110,7 +110,7 @@ https://us-east-1.console.aws.amazon.com/iamv2/home#/home
 
 ![image](https://user-images.githubusercontent.com/52392004/157429047-a90b0f9a-74a7-493a-801c-70d53e10dd22.png)
 
-7) 아래처런 "OpenSearch"로 검색한 후, "OpenSearch-Policy]를 선택하고 [Next]를 누릅니다. 
+7) 아래처런 "OpenSearch"로 검색한 후, [OpenSearch-Policy]를 선택하고 [Next]를 누릅니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157428983-2fd9d16e-a9d4-475a-a216-edbdf99bc239.png)
 
