@@ -4,7 +4,9 @@ Bulk API는 아래와 같이 API Gateway를 통해 "/bulk"로 기입력한 컨�
 
 <img width="532" alt="image" src="https://user-images.githubusercontent.com/52392004/157833888-7c412481-7df4-4ba3-8e31-8c573d312ef1.png">
 
-이때 전달하는 입력의 형태는 아래와 같습니다. 
+여러개 파일 업로드는 파일을 1개씩 올리는 경우와 동일한 Upload API를 사용하나, header에 "X-notification-required: false"를 전달해서, 매번 파일을 올릴때마다 결과가 전달되지 않도록 처리합니다. 이후 "/bulk" API에  전체에 대한 처리 결과시 아래와 같이 파일정보를 제공하면, 응답으로 결과를 얻고, 사용자에게 전체에 대한 알림도 보낼수 있습니다. 
+
+API 호출시 전달하는 입력의 형태는 아래와 같습니다. 
 
 ```java
 [
