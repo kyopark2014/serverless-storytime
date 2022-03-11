@@ -2,9 +2,23 @@
 
 1) Lambda Console에서 "lambda-storytime-for-bulk"로 생성합니다. 
 
-2) 아래와 같이 SNS Permission을 추가합니다. 
+2) 아래와 같이 DynamoDB, SNS Permission을 추가합니다. 
 
 ```java
+          {
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:BatchGetItem",
+              "dynamodb:GetItem",
+              "dynamodb:Scan",
+              "dynamodb:Query",
+              "dynamodb:BatchWriteItem",
+              "dynamodb:PutItem",
+              "dynamodb:UpdateItem",
+              "dynamodb:DeleteItem"
+            ],
+            "Resource": "arn:aws:dynamodb:ap-northeast-2:****:table/*"
+          },
           {
             "Effect": "Allow",
             "Action": [
@@ -18,7 +32,7 @@
               "sns:ListTagsForResource",
               "sns:ListSubscriptionsByTopic"
             ],
-            "Resource": "arn:aws:sns:ap-northeast-2:677146750822:sns-storytime"
+            "Resource": "arn:aws:sns:ap-northeast-2:****:sns-storytime"
           }
 ```        
 
