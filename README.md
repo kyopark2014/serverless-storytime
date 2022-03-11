@@ -116,7 +116,7 @@ SNS 통한 이메일 뿐 아니라 Slack으로도 결과를 메시지로 받기�
 참고: [API Gateway Log 설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/api-gateway-log.md)은
 API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방법입니다. 
 
-13) [Bulk 입력 처리[(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/bulkInterface.md)
+13) [Bulk 입력 처리](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/bulkInterface.md)
 
 이미지 파열을 여러개 올려서 한꺼번에 결과를 얻고자 하는 경우에는 Bulk API를 정의하여 사용합니다. 
 
