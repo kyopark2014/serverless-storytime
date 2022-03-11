@@ -109,14 +109,14 @@ DynamoDB에는 파일의 중복을 판단하는 정보와 event에 대한 정보
 SNS 통한 이메일 뿐 아니라 Slack으로도 결과를 메시지로 받기를 원하는 경우에 설정합니다. 
 
 
-11) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
+12) [테스트 및 결과](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/test.md)
 
 파일을 업로드하여 테스트틑 하는 방법과 예상되는 결과를 검토합니다. 
 
 참고: [API Gateway Log 설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/api-gateway-log.md)은
 API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방법입니다. 
 
-12) [Bulk 입력 처리[(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/bulkInterface.md)
+13) [Bulk 입력 처리[(https://github.com/kyopark2014/serverless-storytime/blob/main/docs/bulkInterface.md)
 
 이미지 파열을 여러개 올려서 한꺼번에 결과를 얻고자 하는 경우에는 Bulk API를 정의하여 사용합니다. 
 
