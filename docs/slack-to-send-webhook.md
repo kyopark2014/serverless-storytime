@@ -83,7 +83,9 @@ curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"
 	});
 ```
 
+Incoming Webhook을 이용하면 쉽게 RESTful API로 slack에 메시지를 보낼수 있으나, 아래와 같이 [deprecated 예정](https://api.slack.com/legacy/custom-integrations/messaging/webhooks)입니다. 
 
+![image](https://user-images.githubusercontent.com/52392004/158079043-0aa401e1-3298-4aac-9f56-c86ee4db8de6.png)
 
 
 
