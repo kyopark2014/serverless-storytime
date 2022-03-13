@@ -111,7 +111,7 @@ Lambda가 SNS topic 호출시 ARN을 사용하는데, 아래와 같이 topicArn�
 
 ### Lambda
 
-CDK에서 Lambda정의시 아래처럼 repositories에 git code를 넣어두면, Lambda 생성시 모든 코드를 자동으로 올려줍니다. 이때 Lambda에서 필요한 SQS URL, SNS ARN(topic), bucket이름을 Environment로 등록할 수 이씃ㅂ니다. 
+CDK에서 Lambda정의시 아래처럼 repositories에 git code를 넣어두면, Lambda 생성시 모든 코드를 자동으로 올려줍니다. 이때 Lambda에서 필요한 SQS URL, SNS ARN(topic), bucket이름을 Environment로 등록할 수 있습니다.
 
 ```java
 // Lambda - Upload
