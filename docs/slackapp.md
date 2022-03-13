@@ -2,9 +2,9 @@
 
 ## Slack Webhook
 
-Slack의 대화방에 메시지를 전송하기 위해서는 Slack의 Webhook address와 Token이 필요합니다. 
+Slack의 대화방에 메시지를 전송하기 위해서는 Slack Token이 필요합니다. 
 
-1) Slack api에 접속
+1) Slack api에 접속합니다.
 
 https://api.slack.com/apps?new_app=1
 
@@ -13,7 +13,7 @@ https://api.slack.com/apps?new_app=1
 ![image](https://user-images.githubusercontent.com/52392004/157184256-3fd1c0dc-c8a5-48bb-a4c4-9e7603e4a8f4.png)
 
 
-2) [Name app & choose workspace]에서 App Name으로 "storytimeBot"으로 입력하고, [Pick a workspace to develop your app in:] 에서 현재 사용하고 있는 Slack의 Workspace를 지정한다. 여기서는 본 데모를 위해 "Storytime"이라는 workspace를 위해 생성 하였습니다. 
+2) [Name app & choose workspace]에서 App Name으로 "storytimeBot"으로 입력하고, [Pick a workspace to develop your app in:] 에서 현재 사용하고 있는 Slack의 Workspace를 지정합니다. 여기서는 본 데모를 위해 "Storytime"이라는 workspace를 위해 생성 하였습니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/157285816-58c80e97-80df-4696-8768-b8ad2d8a0b37.png)
 
