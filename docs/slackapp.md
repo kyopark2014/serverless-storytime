@@ -55,7 +55,7 @@ https://api.slack.com/apps?new_app=1
 아래와 같이 "token"이라는 key로 등록합니다. 
 ![noname](https://user-images.githubusercontent.com/52392004/157288667-ce95b61f-2694-4a03-8bce-e4d94e24228d.png)
 
-소스를 코드에 넣어서 Github에 공유시 계정 사용이 자동으로 안되오니 주의 바랍니다. 
+소스에 토큰을 하드코딩하여 Github에 공유하면, Slack이 이를 확인하여 자동으로 해당 토큰을 정지합니다. 테스트 용도라도 토큰과 같은 중요한 정보는 Environment variable로 관리하는것이 좋습니다. 
 
 
 9) Slack의 "storytime" channel에서 아래와 같이 "/invite @storybot" 이라고 입력해서 chatbot을 등록 합니다. 
