@@ -6,7 +6,7 @@
 
 Console에서 구현시에는 API Gateway - Lambdas - SQS - SNS - DynamoDB - S3 등 먼저 연결되는 모듈을 먼저 만들고 독립된 모듈을 넣는것이 순서적으로 편리한데, CDK에서는 SQS - SNS - DynamoDB - S3 - Lambdas - API Gateway의 순서로 독립된 모듈을 먼저 놓고 연결되는 모듈을 넣는것이 좋습니다. 
 
-여기서는 CDK V2으로 개발하였고, 개발언어로는 Typescript를 사용하였습니다. CDK이외의 각 Lambda는 독립된 언어로 포팅이 가능합니다. 여기서는 Lamadas는 Node.js로 구현합니다. 
+여기서는 CDK V2으로 개발하였고, 개발언어로는 Typescript를 사용하였습니다. CDK이외의 각 Lambda는 독립된 언어로 포팅이 가능합니다. 여기서는 Lamada는 Node.js로 구현합니다. 
 
 #### Import CDK V2
 
@@ -27,7 +27,7 @@ const iam = require('aws-cdk-lib/aws-iam');
 
 #### Amazon SQS
 
-Lambda에서 SQS 호출시에는 URL을 사용하는데, CDK에서는 SQS 정의시에 URL이 생성되므로 아래와 같이 queUrl을 인수로 받아서 사용하여야 합니다. 
+Lambda에서 SQS 호출시에는 URL을 사용하는데, CDK에서는 SQS 정의시에 URL이 생성되므로 아래와 같이 queueUrl을 인수로 받아서 사용하여야 합니다. 
 
 ```java
 // SQS - Rekognition
