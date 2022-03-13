@@ -13,10 +13,6 @@ Console에서 구현시에는 API Gateway - Lambdas - SQS - SNS - DynamoDB 등 �
 CDK init시에 기본설치되는 코드는 V2기준인데, 아직 대부분의 레퍼런스들은 V1기준입니다. V1으로 작성된 코드를 그대로 가져오면 일부 동작안하는 케이스가 있으므로 주의합니다. 
 
 ```java
-import \{ Stack, StackProps \} from 'aws-cdk-lib';
-import \{ Construct \} from 'constructs';
-import * as cdk from 'aws-cdk-lib';
-
 const sqs = require('aws-cdk-lib/aws-sqs');
 const {SqsEventSource} = require('aws-cdk-lib/aws-lambda-event-sources');
 const {SnsEventSource} = require('aws-cdk-lib/aws-lambda-event-sources');
