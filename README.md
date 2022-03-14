@@ -122,6 +122,9 @@ API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방�
 
 장기적으로 인프라를 관리하기 위해서는 IaC(Infrastructure as Code) 툴이 필요합니다. 여기서는 Amazon CDK를 이용해 순쉽게 인프라를 관리하는 방법에 대해 소개 합니다.
 
+15) [Cognito 설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/cognito.md) 
+
+Cognito를 사용하기 위해서는 Client가 Web page접속시 access token을 획득하여, api 호출시마다 "Authorization"헤더에 access token을 전달해 주어야 합니다. 
 
 ## Source Codes
 본 워크샵에 필요한 Lambda upload와 notification 에 대한 코드 및 설명은 아래를 참조 바랍니다. 
