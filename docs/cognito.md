@@ -9,7 +9,7 @@ https://ap-northeast-2.console.aws.amazon.com/cognito/home?region=ap-northeast-2
 
 2) [Manage User Pools]를 선택합니다. 
 
-3) [Create a user pool]을 선택하여 [Pool name]에 "Storytime"을 입력하고 [Review defaults]를 선택합니다. 
+3) [Create a user pool]을 선택하여 [Pool name]에 "storytime"을 입력하고 [Review defaults]를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/158179022-65639ad8-c731-43e3-bfd5-cfd4f7da1145.png)
 
