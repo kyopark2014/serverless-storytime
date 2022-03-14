@@ -27,7 +27,7 @@ https://ap-northeast-2.console.aws.amazon.com/cognito/home?region=ap-northeast-2
 
 7) 왼쪽 메뉴에서 [App client settings]를 선택합니다. 
 
-8) 아래와 같이 [Cognito User Pool]을 선택합니다. [Allowed OAuth Flows]에서 "Authorization code grant"와 "implicit grant"을 선택하고, [Allowed OAuth Scopes]에서 모두 선택합니다. 
+8) 아래와 같이 [Cognito User Pool]을 선택합니다. [Callback URL]과 [Sign out URL]은 임의로 입력합니다. 또, [Allowed OAuth Flows]에서 "Authorization code grant"와 "implicit grant"을 선택하고, [Allowed OAuth Scopes]에서 모두 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/158182467-683cff77-8d33-4a1d-9477-ab982bc008da.png)
 
@@ -38,6 +38,83 @@ https://storytime.auth.ap-northeast-2.amazoncognito.com
 10) 왼쪽 메뉴의 [App client settings]를 선택한후 아래의 [Launch Hosted UI]를 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/158184046-fb08affe-4a38-427d-bff9-44572ab715eb.png)
+
+11) Sign up 화면에서 아래처럼 새로 account를 생성합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158184910-5d3d69fc-6a0e-496b-8c10-e980bd383f6b.png)
+
+아래처럼 이메일 확인합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158185091-2ca36a29-1d71-409d-8b4d-8cc9358489d8.png)
+
+confirmation code를 아래와 같이 입력하고, [Confirm Account]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158185196-9068b6f2-4d35-4373-94f4-b67d66e7b6b2.png)
+
+12) 입의로 입력한 웹페이지가 표시되면서 에러가 발생합니다. 하지만 아래의 URL에서 code를 추출할수 있는데 API Gateway에서 사용되므로 별도로 보관합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158186335-6802bb11-8cdb-44f4-b234-78f80f971ced.png)
+
+URL 정보는 아래와 같습니다.
+ 
+```java
+https://storytime.com/callback?code=56e284f2-6e7e-4452-9d4e-bc3428c529cb
+```
+
+13) 다시 왼쪽 메뉴에서 [App client settings]를 선택하여 하단의 [Launch Hosted UI]를 다시 선택합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158193277-8960583c-4e92-45e1-9219-e637ef42987b.png)
+
+14) 이때, 브라우저를 선택하여 URL을 복사하면 아래와 같습니다. 
+
+```java
+https://storytime.auth.ap-northeast-2.amazoncognito.com/login?client_id=abc1c34k3smhmk6v3eh05lulc4&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://storytime.com/callback
+```
+
+여기서, "response_type=code"를 "response_type=token"으로 변경하하고, [Sign in as John]을 선택합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158194336-e4c59feb-e2ee-4a95-9acf-adf6687a84cb.png)
+
+15) 다시 접속에 실패하는 화면이 나오지만 URL정보는 아래와 같습니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158194685-bdb78856-54a0-4a5f-88f9-9c8d92b48d0f.png)
+
+URL 정보 
+
+```java
+https://storytime.com/callback#id_token=abcraWQiOiJKaUZYM2k2WTBMckxtYXpDXC9SUjNxTDQ0MWVpSU56bjBJSWloWjlDejFtVT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiNV9iRXIyT3hzUlpSY0k0eDFWWUhQZyIsInN1YiI6IjlmNmE5ZjdkLWU5ODYtNDUzNy1hZDMzLWMwNzdkN2Q4MjZiZSIsImF1ZCI6IjVxazFjMzRrM3NtaG1rNnYzZWgwNWx1bGM0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQ3MjY4NTA2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTJfYk9XakZmU0lSIiwiY29nbml0bzp1c2VybmFtZSI6ImpvaG4iLCJleHAiOjE2NDcyNzIxMDYsImlhdCI6MTY0NzI2ODUwNiwianRpIjoiNzNmN2FkZjMtOGUwNi00NjZhLTk3NTAtOWRjMGExYzQ4NTkwIiwiZW1haWwiOiJzdG9yeXRpbWVib3QyMUBnbWFpbC5jb20ifQ.jncy2i1xsx3IrzbJes7ytWITtoNkF6bP-Uhr2IfrkcF5Ucx7hRnRbfhc4UniaKxl8osnSK37vadE_s2wP3KfSzab24m87oZbLHQevxaqR6mwiV4fKp_Un5sKbGwjGyoi6v0mM4hgROyMl55N6DyStSFOPKwAGgCS8Ns_VKLb9mJCtu1pKIUO6jvVQVcf10qgZYX76s-1Eo113q20X4lkN63YYqhOZewNTgpwXnIoXngyGl5ed-ZRDtBuVGnTzhbdMKDrHFLV0rOyZlL5-y6ObHZw_SVirHsmic0u1Hv7ifzJvTbjg02XZZn4uohikunjcUyR-22L-Q9iUe0DcCfb9Q&access_token=eyJraWQiOiJaV29aRDN3cFFLSlhIRGpNU1ZpcU10VGJIZFFZc3FZV21VUEE4YVdRaXEwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5ZjZhOWY3ZC1lOTg2LTQ1MzctYWQzMy1jMDc3ZDdkODI2YmUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjQ3MjY4NTA2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTJfYk9XakZmU0lSIiwiZXhwIjoxNjQ3MjcyMTA2LCJpYXQiOjE2NDcyNjg1MDYsInZlcnNpb24iOjIsImp0aSI6ImYwYTQ1OThkLWEyMDgtNDg0Yy1iMDhlLWZhZWM3YjIyNmM2YyIsImNsaWVudF9pZCI6IjVxazFjMzRrM3NtaG1rNnYzZWgwNWx1bGM0IiwidXNlcm5hbWUiOiJqb2huIn0.8UC61PHUXnZvmLjUQTt8m1ACk2IabrhWGdYTft8r7tTOb7LyTdU8wtgv2xNjilh-NKzkr5cJzWeNWEivgnogBJlUxNnhCuyDK1GnqDQ10eKY7rIU1OWcERe10UW11JTMkKj9NI7DgHNwkY4W5nsJR_TEpRWW58l9KmXNFloWFH6yTGmI9xaVJG_d3yWKXhjYsGUwuSY1xAokYV_aHnYqaHLqnSEQL0bTa5yXIohhJjn5owB5tyeL71A78IvKTGnmuoiWKii1dBpgmVOb7rbJ2wNOzAsfrD1uZHImRts9EA-CZHh57ewQE4NRMtWisCsjjUHLQ72QWtAdaWsZD5EQ_A&expires_in=3600&token_type=Bearer
+```
+
+16) 상기 여기에서 token을 복사합니다. 
+
+eyJraWQiOiJKaUZYM2k2WTBMckxtYXpDXC9SUjNxTDQ0MWVpSU56bjBJSWloWjlDejFtVT0iLCJhbGciOiJSUzI1NiJ9.eyJhdF9oYXNoIjoiNV9iRXIyT3hzUlpSY0k0eDFWWUhQZyIsInN1YiI6IjlmNmE5ZjdkLWU5ODYtNDUzNy1hZDMzLWMwNzdkN2Q4MjZiZSIsImF1ZCI6IjVxazFjMzRrM3NtaG1rNnYzZWgwNWx1bGM0IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQ3MjY4NTA2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTJfYk9XakZmU0lSIiwiY29nbml0bzp1c2VybmFtZSI6ImpvaG4iLCJleHAiOjE2NDcyNzIxMDYsImlhdCI6MTY0NzI2ODUwNiwianRpIjoiNzNmN2FkZjMtOGUwNi00NjZhLTk3NTAtOWRjMGExYzQ4NTkwIiwiZW1haWwiOiJzdG9yeXRpbWVib3QyMUBnbWFpbC5jb20ifQ.jncy2i1xsx3IrzbJes7ytWITtoNkF6bP-Uhr2IfrkcF5Ucx7hRnRbfhc4UniaKxl8osnSK37vadE_s2wP3KfSzab24m87oZbLHQevxaqR6mwiV4fKp_Un5sKbGwjGyoi6v0mM4hgROyMl55N6DyStSFOPKwAGgCS8Ns_VKLb9mJCtu1pKIUO6jvVQVcf10qgZYX76s-1Eo113q20X4lkN63YYqhOZewNTgpwXnIoXngyGl5ed-ZRDtBuVGnTzhbdMKDrHFLV0rOyZlL5-y6ObHZw_SVirHsmic0u1Hv7ifzJvTbjg02XZZn4uohikunjcUyR-22L-Q9iUe0DcCfb9Q&access_token=eyJraWQiOiJaV29aRDN3cFFLSlhIRGpNU1ZpcU10VGJIZFFZc3FZV21VUEE4YVdRaXEwPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI5ZjZhOWY3ZC1lOTg2LTQ1MzctYWQzMy1jMDc3ZDdkODI2YmUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIHBob25lIG9wZW5pZCBwcm9maWxlIGVtYWlsIiwiYXV0aF90aW1lIjoxNjQ3MjY4NTA2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTIuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTJfYk9XakZmU0lSIiwiZXhwIjoxNjQ3MjcyMTA2LCJpYXQiOjE2NDcyNjg1MDYsInZlcnNpb24iOjIsImp0aSI6ImYwYTQ1OThkLWEyMDgtNDg0Yy1iMDhlLWZhZWM3YjIyNmM2YyIsImNsaWVudF9pZCI6IjVxazFjMzRrM3NtaG1rNnYzZWgwNWx1bGM0IiwidXNlcm5hbWUiOiJqb2huIn0.8UC61PHUXnZvmLjUQTt8m1ACk2IabrhWGdYTft8r7tTOb7LyTdU8wtgv2xNjilh-NKzkr5cJzWeNWEivgnogBJlUxNnhCuyDK1GnqDQ10eKY7rIU1OWcERe10UW11JTMkKj9NI7DgHNwkY4W5nsJR_TEpRWW58l9KmXNFloWFH6yTGmI9xaVJG_d3yWKXhjYsGUwuSY1xAokYV_aHnYqaHLqnSEQL0bTa5yXIohhJjn5owB5tyeL71A78IvKTGnmuoiWKii1dBpgmVOb7rbJ2wNOzAsfrD1uZHImRts9EA-CZHh57ewQE4NRMtWisCsjjUHLQ72QWtAdaWsZD5EQ_A&expires_in=3600&token_type=Bearer
+
+
+## API Gateway 설정 
+
+1) API Gateway Console로 이동합니다. 
+
+https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-northeast-2
+
+2) api리스트에서 "storytime"을 선택 하고, 왼쪽 메뉴에서 [Authorizers]를 선택하고, 오른족 메뉴에서 [Create New Authorizer]를 선택합니다.  
+
+![image](https://user-images.githubusercontent.com/52392004/158190975-b28fb21f-7355-451a-a6d5-19cc21585fd7.png)
+
+3) [Authorizers]에서 [Create Authorizer]에 "storytime"을 입력하고, [Type]은 "Cognito"를 선택합니다. 또한 [Cognito User Pool]을 선택하여 storytime을 고르고, Token Source는 임의로 "Authrization"이라고 입력후 [Create]을 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158192422-33c0da22-c052-4892-bc50-c5110fcf49f8.png)
+
+
+![image](https://user-images.githubusercontent.com/52392004/158196932-46929127-68f2-4dd1-a7b2-70d096ea8542.png)
+
+4) 
+
+![image](https://user-images.githubusercontent.com/52392004/158196102-287dfb07-eacf-4e54-9530-f0b0e6daca74.png)
+
+
+인증이 성공하면 아래와 같이 계정에 대한 정보가 표시 됩니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158196753-49efdb9d-c51a-4684-b57d-9d85b745f767.png)
 
 
 
