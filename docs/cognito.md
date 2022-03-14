@@ -101,7 +101,7 @@ https://ap-northeast-2.console.aws.amazon.com/apigateway/main/apis?region=ap-nor
 
 ![image](https://user-images.githubusercontent.com/52392004/158190975-b28fb21f-7355-451a-a6d5-19cc21585fd7.png)
 
-3) [Authorizers]에서 [Create Authorizer]에 "storytime"을 입력하고, [Type]은 "Cognito"를 선택합니다. 또한 [Cognito User Pool]을 선택하여 storytime을 고르고, Token Source는 임의로 "Authrization"이라고 입력후 [Create]을 선택합니다. 
+3) [Authorizers]에서 [Create Authorizer]에 "storytime"을 입력하고, [Type]은 "Cognito"를 선택합니다. 또한 [Cognito User Pool]을 선택하여 storytime을 고르고, Token Source는  "Authrization"이라고 입력후 [Create]을 선택합니다. 
 
 ![image](https://user-images.githubusercontent.com/52392004/158192422-33c0da22-c052-4892-bc50-c5110fcf49f8.png)
 
@@ -117,6 +117,31 @@ Create에 성공하면 아래와 같이 Cognito 정보가 표시됩니다.
 
 ![noname](https://user-images.githubusercontent.com/52392004/158196753-49efdb9d-c51a-4684-b57d-9d85b745f767.png)
 
+5) API에서 Cognito 인증을 사용할 수 있도록, [API]-[Resources]-[POST]에서 [Method Request]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158199904-79c4508c-0a06-4610-a421-83106a0f68cc.png)
+
+6) 아래와 같이 Authorization에서 "storytime"을 선택합니다. 만약 "storytime"이 노출되지 않으므로 브라우저를 refresh하고 재시도 합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158200139-7bab3213-620d-4db5-bdfd-e5fe6748eb17.png)
+
+7) [Oauth Scopes]는 아래와 같이 "email"이라고 입력합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158200965-00554099-890c-4200-9845-84adec7eb32f.png)
+
+8) 수정된 사항을 적용하기 위하여 [API] - [Resources] - [POST]에서 [Actions] - [Deploy API]를 선택합니다. 이후 여기서는 [Deployment stage]를 "dev"로 입력하고 [Deploy] 버튼을 눌러서 API Gateway를 deploy 합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158201472-ebf6f18b-c4be-453b-bed9-5f035db072cc.png)
+
+
+
+
+
+## 업로드 시험 
+
+실제 업로드시 동작을 확인하기 위하여 Postman에서 기존에 사용하던 방식으로 접속을 시도하면 아래와 같이 실패합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158202085-09042947-6015-4bd1-b37b-f795031dbfa0.png)
 
 
 
