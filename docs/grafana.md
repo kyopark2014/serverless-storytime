@@ -41,7 +41,7 @@ https://github.com/kyopark2014/serverless-storytime/blob/main/docs/sso.md
 
 ![noname](https://user-images.githubusercontent.com/52392004/158282733-77db9353-156a-42a3-9cf2-a2fcbe2ebcdc.png)
 
-아래와 같이 AWS Sing Sign-On이 Enabled로 변경도비니다. 
+아래와 같이 AWS Sing Sign-On이 Enabled로 변경됩니다.
 
 ![noname](https://user-images.githubusercontent.com/52392004/158282882-c3a4e621-1603-4a4d-97fa-8ec1b0dd55dd.png)
 
@@ -49,7 +49,4 @@ https://github.com/kyopark2014/serverless-storytime/blob/main/docs/sso.md
 
 ![image](https://user-images.githubusercontent.com/52392004/158276132-b7e33b04-945b-45d8-aeab-f461cae6b6ba.png)
 
-11
-
-![image](https://user-images.githubusercontent.com/52392004/158275598-ea63a232-3942-45e9-a749-008bc5047b0f.png)
 
