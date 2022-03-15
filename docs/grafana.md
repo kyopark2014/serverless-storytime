@@ -23,4 +23,17 @@ https://ap-northeast-2.console.aws.amazon.com/grafana/home?region=ap-northeast-2
 5) 왼쪽의 "Step 3 Service managed permission settings"를 선택후 [Amazon CloudWatch]를 선택한 후에 [Next]를 선택합니다. 
 
 
+6) 설정 확인후 [Create workspace]를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158275320-8cad380f-c07c-4831-8e0f-8e3382875b3d.png)
+
+7) 완료된 화면은 아래와 같습니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158275516-4067c020-9a4d-4083-b6cc-ef3801eb10ec.png)
+
+
+![image](https://user-images.githubusercontent.com/52392004/158276132-b7e33b04-945b-45d8-aeab-f461cae6b6ba.png)
+
+
+![image](https://user-images.githubusercontent.com/52392004/158275598-ea63a232-3942-45e9-a749-008bc5047b0f.png)
 
