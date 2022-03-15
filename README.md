@@ -6,7 +6,7 @@
 
 책 읽어주는 서비스(Storytime)는 이미지에서 텍스트를 추출하는 AWS Rekognition과 텍스트를 음성으로 변환하는 AWS Polly을 이용하여 구현됩니다. 이러한 Machine Learning기반의 AWS 서비스를 사용하여 비용효율적인 시스템 아키텍처를 설계하기 위하여 AWS Lambda와 AWS SQS를 적극적으로 사용합니다. 이와 같은 AWS Serverless Architecture는 초기 투자가 없어 비용 효율적이며, auto scaling을 통해 트래픽 변화에 대해서도 적절히 대응할 수 있습니다. 아래 그림은 Story Time의 Severless Event-Driven Architecture에 구조에 대해 기술하고 있습니다. 
 
-<img width="1420" alt="image" src="https://user-images.githubusercontent.com/52392004/158119767-65b023c4-e5cb-4ac0-a940-344dae19fe75.png">
+<img width="1419" alt="image" src="https://user-images.githubusercontent.com/52392004/158305208-743b1bef-b8d6-4091-a92c-785286c6f4fe.png">
 
 주요 사용 시나리오는 아래와 같습니다.
  
