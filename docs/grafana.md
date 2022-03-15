@@ -104,6 +104,10 @@ https://docs.aws.amazon.com/grafana/latest/userguide/adding--CloudWatch-manual.h
     }
 ```
 
+14) Data Source를 지정합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158297252-d797d6ac-46bc-4f43-a72b-750d3bbb8a5c.png)
+
 
 ## Troubleshooting
 
