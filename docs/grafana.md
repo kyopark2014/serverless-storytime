@@ -105,4 +105,9 @@ https://docs.aws.amazon.com/grafana/latest/userguide/adding--CloudWatch-manual.h
 ```
 
 
+## Troubleshooting
+
+Permsission denied로 CloudWatch를 Data Source로 지정하지 못하는 경우에 아래와 같이 [Amazon Grafana] - [Workspaces] - [storytime]에서 [AWS Single-Sign-On] Admin으로 설정되어 있는지 확인합니다. 만약 Vieer로 지정되어 있다면 [Make admin]을 선택하여 User Type을 "Admin"으로 변경합니다.  
+
+![image](https://user-images.githubusercontent.com/52392004/158296988-c5176279-d5a5-46a0-acab-5e26192e72de.png)
 
