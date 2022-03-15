@@ -32,8 +32,24 @@ https://ap-northeast-2.console.aws.amazon.com/grafana/home?region=ap-northeast-2
 ![image](https://user-images.githubusercontent.com/52392004/158275516-4067c020-9a4d-4083-b6cc-ef3801eb10ec.png)
 
 
+8) SSO를 사용하기 위하여 아래와 같이 AWS Control Tower를 등록합니다. 
+
+https://github.com/kyopark2014/serverless-storytime/blob/main/docs/sso.md
+
+9) [Amazon Grafana] - [Workspace] - [storytime] - [AWS Single Sign-On (AWS SSO)] - [Assign user]에 접속하여 아래와 같이 설정확인을 하고 [Assign users and groups]을 합니다. 
+
+
+![noname](https://user-images.githubusercontent.com/52392004/158282733-77db9353-156a-42a3-9cf2-a2fcbe2ebcdc.png)
+
+아래와 같이 AWS Sing Sign-On이 Enabled로 변경도비니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/158282882-c3a4e621-1603-4a4d-97fa-8ec1b0dd55dd.png)
+
+10) [Grafana workspace URL]을 선택하여 Grafana에 진입합니다. 
+
 ![image](https://user-images.githubusercontent.com/52392004/158276132-b7e33b04-945b-45d8-aeab-f461cae6b6ba.png)
 
+11
 
 ![image](https://user-images.githubusercontent.com/52392004/158275598-ea63a232-3942-45e9-a749-008bc5047b0f.png)
 
