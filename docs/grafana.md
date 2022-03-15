@@ -50,3 +50,59 @@ https://github.com/kyopark2014/serverless-storytime/blob/main/docs/sso.md
 ![image](https://user-images.githubusercontent.com/52392004/158276132-b7e33b04-945b-45d8-aeab-f461cae6b6ba.png)
 
 
+11) Data Source 설정
+
+[Amazon Grafana] - [Workspaces] - [storytime]에 접속해 아래와 같이 "Amazon CloudWatch"를 선택하고 오른쪽의 "Configure in Grafana"를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158291869-97dcc59b-9435-4b03-b3c1-71705adbdba5.png)
+
+12) [AWS Services]에서 아래와 같이 CloudWatch를 선택합니다. 
+
+![image](https://user-images.githubusercontent.com/52392004/158292340-a8f547ae-6f30-45d4-864d-c9c7ce67d107.png)
+
+13) Permission 에러 발생시 아래 퍼미션을 IAM policy에 추가합니다. 
+
+https://docs.aws.amazon.com/grafana/latest/userguide/adding--CloudWatch-manual.html 참조
+```java
+{
+      "Sid": "AllowReadingMetricsFromCloudWatch",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:DescribeAlarmsForMetric",
+        "cloudwatch:DescribeAlarmHistory",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:ListMetrics",
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:GetMetricData"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowReadingLogsFromCloudWatch",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogGroups",
+        "logs:GetLogGroupFields",
+        "logs:StartQuery",
+        "logs:StopQuery",
+        "logs:GetQueryResults",
+        "logs:GetLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowReadingTagsInstancesRegionsFromEC2",
+      "Effect": "Allow",
+      "Action": ["ec2:DescribeTags", "ec2:DescribeInstances", "ec2:DescribeRegions"],
+      "Resource": "*"
+    },
+    {
+      "Sid": "AllowReadingResourcesForTags",
+      "Effect": "Allow",
+      "Action": "tag:GetResources",
+      "Resource": "*"
+    }
+```
+
+
+
