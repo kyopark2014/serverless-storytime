@@ -126,6 +126,10 @@ API Gataway에 대한 로그를 CloudWatch에서 확인하기 위한 설정 방�
 
 Cognito를 사용하기 위해서는 Client가 Web page접속시 access token을 획득하여, api 호출시마다 "Authorization"헤더에 access token을 전달해 주어야 합니다. 
 
+16) [Grafana설정](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/grafana.md)
+
+Dashboard 작성을 위해 Amazon Grafana를 설정합니다. 
+
 ## Source Codes
 본 워크샵에 필요한 Lambda upload와 notification 에 대한 코드 및 설명은 아래를 참조 바랍니다. 
 
