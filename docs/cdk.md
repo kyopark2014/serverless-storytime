@@ -97,15 +97,11 @@ Lambda가 SNS topic 호출시 ARN을 사용하는데, 아래와 같이 topicArn�
 아래와 S3의 Bucket을 정의하고, 외부 접속을 disable할 수 있습니다. Lambda가 이용하는 bucket이름도 아래처럼 bucketName을 이용하여 인자로 사용합니다. 
 
 ```java
-  const s3Bucket = new s3.Bucket(this, "cdk-s3-storytime",{
+    const s3Bucket = new s3.Bucket(this, "cdk-s3-storytime",{
       removalPolicy: cdk.RemovalPolicy.DESTROY,
+      autoDeleteObjects: true,
       publicReadAccess: false,
       versioned: false,
-    });
-
-    new cdk.CfnOutput(this, 'bucketName', {
-      value: s3Bucket.bucketName,
-      description: 'The nmae of bucket',
     });
 ```
 
