@@ -182,22 +182,55 @@ Polly에 대한 퍼미션은 아래와 같습니다.
 API Gateway는 아래와 같이 선언하고 upload와는 POST method를 사용하도록 설정하고, retrieve, bulk는 GET을 사용할 수 있도록 설정할 수 있습니다. 
 
 ```java
-  // API Gateway
+// API Gateway
     const api = new apiGateway.RestApi(this, 'api-storytime', {
       description: 'API Gateway',
       endpointTypes: [apiGateway.EndpointType.REGIONAL],
+      binaryMediaTypes: ['*/*'],
       deployOptions: {
         stageName: 'dev',
       },
       proxy: false
     });    
     const upload = api.root.addResource('upload');
-    upload.addMethod('POST', new apiGateway.LambdaIntegration(lambdaUpload)); 
+    upload.addMethod('POST', new apiGateway.LambdaIntegration(lambdaUpload, {
+      integrationResponses: [{
+        statusCode: '200',
+      }], 
+      PassthroughBehavior: apiGateway.PassthroughBehavior.NEVER,
+      requestTemplates: requestTemplates,
+      proxy:false,
+      methodResponse: [
+        {
+          statusCode: '200',
+          // responseParameters: {'method.response.header.Access-Control-Allow-Origin': true},
+          responseModels: {'application/json': apiGateway.Model.EMPTY_MODEL,},
+          //responseTemplate: {"application/json": "{\"statusCode\": 200}"},
+          responseParameters: {
+            'method.response.header.Content-Type': true,
+            'method.response.header.Content-Length': false,
+          },
+        }
+      ]
+    })); 
     
     const retrieve = api.root.addResource('retrieve');
-    retrieve.addMethod('GET', new apiGateway.LambdaIntegration(lambdaRetrieve)); 
+    retrieve.addMethod('GET', new apiGateway.LambdaIntegration(lambdaRetrieve, {
+      integrationResponses: [
+        { statusCode: '200' },
+      ],
+      PassthroughBehavior: apiGateway.PassthroughBehavior.NEVER,
+      requestTemplates: {"application/json": "{\"statusCode\": 200}"},
+      proxy:false
+    })); 
 
     const bulk = api.root.addResource('bulk');
-    bulk.addMethod('GET', new apiGateway.LambdaIntegration(lambdaBulk); 
-
+    bulk.addMethod('GET', new apiGateway.LambdaIntegration(lambdaBulk, {
+      integrationResponses: [
+        { statusCode: '200' },
+      ],
+      PassthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
+      requestTemplates: {"application/json": "{\"statusCode\": 200}"},
+      proxy:false
+    })); 
 ```
