@@ -73,7 +73,7 @@ Lambda가 SNS topic 호출시 ARN을 사용하는데, 아래와 같이 topicArn�
 
 ### DynamoDB
 
-아래와 같이 DynamoDB의 partition key와 sort key를 정의하여 인덱싱을 위해 GSI도 등록합니다. 
+아래와 같이 DynamoDB의 partition key와 sort key를 정의하고, 인덱싱을 위해 GSI도 등록합니다. 
 
 ``` DynamoDB
     const dataTable = new dynamodb.Table(this, 'dynamodb-storytime', {
