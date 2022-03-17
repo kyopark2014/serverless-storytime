@@ -133,15 +133,25 @@ Dashboard 작성을 위해 Amazon Grafana를 설정합니다.
 ## Source Codes
 본 워크샵에 필요한 Lambda upload와 notification 에 대한 코드 및 설명은 아래를 참조 바랍니다. 
 
-[[Github: Lambda-upload]](https://github.com/kyopark2014/serverless-storytime-for-upload)
+[Lambda-upload]](https://github.com/kyopark2014/serverless-storytime-for-upload)
 
+[Lambda-rekognition]](https://github.com/kyopark2014/serverless-storytime-for-rekognition)
 
-[[Github: Lambda-rekognition]](https://github.com/kyopark2014/serverless-storytime-for-rekognition)
+[Lambda-polly]](https://github.com/kyopark2014/serverless-storytime-for-polly)
 
+[Lambda-retrieve](https://github.com/kyopark2014/serverless-storytime-for-retrieve)
 
-[[Github: Lambda-polly]](https://github.com/kyopark2014/serverless-storytime-for-polly)
+[Lambda-bulk](https://github.com/kyopark2014/serverless-storytime-for-bulk-interface)
 
+[Lambda-opensearch](https://github.com/kyopark2014/serverless-storytime-for-opensearch)
 
+[Lambda-slack](https://github.com/kyopark2014/serverless-storytime-for-slack)
+
+## Textract
+
+Textract의 경우에 Rekognition보다 더 많은 텍스트를 추출할 수 있는 장점이 있어 참고로 정리했습니다.
+
+[Textract](https://github.com/kyopark2014/serverless-textextraction)
 
 ### Plant UML
 
