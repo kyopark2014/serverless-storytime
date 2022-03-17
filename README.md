@@ -131,7 +131,8 @@ Cognito를 사용하기 위해서는 Client가 Web page접속시 access token을
 Dashboard 작성을 위해 Amazon Grafana를 설정합니다. 
 
 ## Source Codes
-본 워크샵에 필요한 Lambda upload와 notification 에 대한 코드 및 설명은 아래를 참조 바랍니다. 
+
+관련된 코드들은 아래를 참조 바랍니다. 
 
 [Lambda-upload](https://github.com/kyopark2014/serverless-storytime-for-upload)
 
