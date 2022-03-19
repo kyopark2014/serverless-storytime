@@ -335,6 +335,8 @@ https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gatewa
 
 [I defined my Lambda integration in API Gateway using a stage variable. Why do I get an "Internal server error" and a 500 status code when I invoke the API method?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
 
+[Execution failed due to configuration error: Invalid permissions on Lambda function](https://stackoverflow.com/questions/54067224/execution-failed-due-to-configuration-error-invalid-permissions-on-lambda-funct)
+
 현재 git을 포팅시 동일한 이슈가 있는데, 아래처럼 처리하면 됩니다. 
 
 1) API Gateway Console에서 [Integration request[를 선택합니다. 
