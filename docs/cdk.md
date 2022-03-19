@@ -330,10 +330,10 @@ API Gateway는 아래와 같이 선언하고 upload와는 POST method를 사용�
 
 [How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
 
-[How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](
+[AWS API Gateway Invoke Lambda Function Permission](
 https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
 
-[How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
+[I defined my Lambda integration in API Gateway using a stage variable. Why do I get an "Internal server error" and a 500 status code when I invoke the API method?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
 
 현재 git을 포팅시 동일한 이슈가 있는데, 아래처럼 처리하면 됩니다. 
 
