@@ -178,55 +178,179 @@ Polly에 대한 퍼미션은 아래와 같습니다.
 API Gateway는 아래와 같이 선언하고 upload와는 POST method를 사용하도록 설정하고, retrieve, bulk는 GET을 사용할 수 있도록 설정할 수 있습니다. 
 
 ```java
-// API Gateway
-    const api = new apiGateway.RestApi(this, 'api-storytime', {
+// api Gateway
+    const logGroup = new logs.LogGroup(this, 'AccessLogs', {
+      retention: 90, // Keep logs for 90 days
+    });
+    logGroup.grantWrite(new iam.ServicePrincipal('apigateway.amazonaws.com')); 
+
+    const api = new apiGateway.LambdaRestApi(this, 'api-storytime', {
       description: 'API Gateway',
+      handler: Backend,
       endpointTypes: [apiGateway.EndpointType.REGIONAL],
       binaryMediaTypes: ['*/*'],
       deployOptions: {
-        stageName: 'dev',
+        stageName: stage,
+        accessLogDestination: new apiGateway.LogGroupLogDestination(logGroup),
+        accessLogFormat: apiGateway.AccessLogFormat.jsonWithStandardFields({
+          caller: false,
+          httpMethod: true,
+          ip: true,
+          protocol: true,
+          requestTime: true,
+          resourcePath: true,
+          responseLength: true,
+          status: true,
+          user: true
+        }),
       },
       proxy: false
-    });    
+    });   
+
+    lambdaUpload.grantInvoke(new iam.ServicePrincipal('apigateway.amazonaws.com'));
+
+    const templateString: string = `##  See http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+    ##  This template will pass through all parameters including path, querystring, header, stage variables, and context through to the integration endpoint via the body/payload
+    #set($allParams = $input.params())
+    {
+    "body-json" : $input.json('$'),
+    "params" : {
+    #foreach($type in $allParams.keySet())
+        #set($params = $allParams.get($type))
+    "$type" : {
+        #foreach($paramName in $params.keySet())
+        "$paramName" : "$util.escapeJavaScript($params.get($paramName))"
+            #if($foreach.hasNext),#end
+        #end
+    }
+        #if($foreach.hasNext),#end
+    #end
+    },
+    "stage-variables" : {
+    #foreach($key in $stageVariables.keySet())
+    "$key" : "$util.escapeJavaScript($stageVariables.get($key))"
+        #if($foreach.hasNext),#end
+    #end
+    },
+    "context" : {
+        "account-id" : "$context.identity.accountId",
+        "api-id" : "$context.apiId",
+        "api-key" : "$context.identity.apiKey",
+        "authorizer-principal-id" : "$context.authorizer.principalId",
+        "caller" : "$context.identity.caller",
+        "cognito-authentication-provider" : "$context.identity.cognitoAuthenticationProvider",
+        "cognito-authentication-type" : "$context.identity.cognitoAuthenticationType",
+        "cognito-identity-id" : "$context.identity.cognitoIdentityId",
+        "cognito-identity-pool-id" : "$context.identity.cognitoIdentityPoolId",
+        "http-method" : "$context.httpMethod",
+        "stage" : "$context.stage",
+        "source-ip" : "$context.identity.sourceIp",
+        "user" : "$context.identity.user",
+        "user-agent" : "$context.identity.userAgent",
+        "user-arn" : "$context.identity.userArn",
+        "request-id" : "$context.requestId",
+        "resource-id" : "$context.resourceId",
+        "resource-path" : "$context.resourcePath"
+        }
+    }`    
+    const requestTemplates = { // path through
+      "image/jpeg": templateString,
+      "image/jpg": templateString,
+      "application/octet-stream": templateString,
+      "image/png" : templateString
+    }
+    
     const upload = api.root.addResource('upload');
     upload.addMethod('POST', new apiGateway.LambdaIntegration(lambdaUpload, {
+      // PassthroughBehavior: apiGateway.PassthroughBehavior.NEVER,
+      PassthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
+      requestTemplates: requestTemplates,
       integrationResponses: [{
         statusCode: '200',
       }], 
-      PassthroughBehavior: apiGateway.PassthroughBehavior.NEVER,
-      requestTemplates: requestTemplates,
-      proxy:false,
-      methodResponse: [
+      proxy:false, 
+    }), {
+      methodResponses: [   // API Gateway sends to the client that called a method.
         {
           statusCode: '200',
-          // responseParameters: {'method.response.header.Access-Control-Allow-Origin': true},
-          responseModels: {'application/json': apiGateway.Model.EMPTY_MODEL,},
-          //responseTemplate: {"application/json": "{\"statusCode\": 200}"},
-          responseParameters: {
-            'method.response.header.Content-Type': true,
-            'method.response.header.Content-Length': false,
-          },
+          responseModels: {
+            'application/json': apiGateway.Model.EMPTY_MODEL,
+          }, 
         }
       ]
-    })); 
+    }); 
     
     const retrieve = api.root.addResource('retrieve');
     retrieve.addMethod('GET', new apiGateway.LambdaIntegration(lambdaRetrieve, {
+      PassthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
+      requestTemplates: {"application/json": templateString},
       integrationResponses: [
         { statusCode: '200' },
       ],
-      PassthroughBehavior: apiGateway.PassthroughBehavior.NEVER,
-      requestTemplates: {"application/json": "{\"statusCode\": 200}"},
-      proxy:false
-    })); 
+      proxy:false,
+    }),{
+      methodResponses: [   // API Gateway sends to the client that called a method.
+        {
+          statusCode: '200',
+          'responseModels': {
+            'application/json': apiGateway.Model.EMPTY_MODEL,
+          }, 
+        }
+      ]
+    }); 
 
     const bulk = api.root.addResource('bulk');
     bulk.addMethod('GET', new apiGateway.LambdaIntegration(lambdaBulk, {
+      PassthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
+      requestTemplates: {"application/json": templateString},
       integrationResponses: [
         { statusCode: '200' },
       ],
-      PassthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
-      requestTemplates: {"application/json": "{\"statusCode\": 200}"},
-      proxy:false
-    })); 
+      proxy:false,
+    }),{
+      methodResponses: [   // API Gateway sends to the client that called a method.
+        {
+          statusCode: '200',
+          'responseModels': {
+            'application/json': apiGateway.Model.EMPTY_MODEL,
+          }, 
+        }
+      ]
+    }); 
+
+    new cdk.CfnOutput(this, 'apiUrl', {
+      value: api.url,
+      description: 'The url of API Gateway',
+    });
 ```
+
+## Troubleshoot: API Gateway 500에러
+
+아래와 같이 stage variable을 사용할때 AWS Lamda를 invoke하면서 500에러가 발생하는 케이스가 다수 리포트 되고 있습니다.
+
+[How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
+
+[How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](
+https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
+
+[How can I grant permission to API Gateway to invoke lambda functions through CloudFormation?](https://intellipaat.com/community/16577/how-can-i-grant-permission-to-api-gateway-to-invoke-lambda-functions-through-cloudformation)
+
+현재 git을 포팅시 동일한 이슈가 있는데, 아래처럼 처리하면 됩니다. 
+
+1) API Gateway Console에서 [Integration request[를 선택합니다. 
+
+<img width="1405" alt="image" src="https://user-images.githubusercontent.com/52392004/159109404-f5d3418c-dc73-40a2-93d5-2133307d8dc3.png">
+
+2) Lamda function에서 오른쪽 끝의 수정 버튼을 클릭합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/159109490-c5ebc580-1eee-4ad7-9f1b-06448c5b70b7.png)
+
+3) 이후 수정없이 체크 버튼을 클릭 합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/159109512-094fa66a-66d6-4f5f-b396-ca1134ff7f4d.png)
+
+4) 아래처럼 invite를 확인하는 팝업이 뜨면 OK를 선택합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/159109549-21ce467b-f259-4f1a-8166-625fcd43f399.png)
+
+같은 방식으로 다른 method도 동일하게 lambda랑 연결합니다. 
