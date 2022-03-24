@@ -69,7 +69,7 @@ https://api.slack.com/apps?new_app=1
 ![noname](https://user-images.githubusercontent.com/52392004/157291591-2d46f158-84a6-47f7-9798-384bee210c37.png)
 
 
-## Troubleshooting 
+## Troubleshooting for lambda
 
 Node.js로 코드 구현하여 Lambda에 포팅하여 테스트시, Incoming Webhook과 Slack apps 방식 모두에서 정상적으로 메시지를 수신하지 못하는 현상이 발생하였습니다. 로그 분석을 통해 원인이 API 호출후 응답을 받기 전에 Lambda가 종료됨으로 인하여 API 호출이 완료되지 않아서 Slack에서 중지한것으로 보여집니다. 관련하여 Lambda 사용시 javascript event loop에 대한 [posting](https://stackoverflow.com/questions/31633912/how-to-wait-for-async-actions-inside-aws-lambda)을 참조하여, 아래처럼 Lambda를 강제로 종료시키지 않는 방법으로 해결하였습니다. 
 
@@ -89,3 +89,40 @@ function wait(){
   return 'exiting'
 ```
 
+## Troubleshooting for slackapp
+
+1) Slack api 사이트에 접속합니다. 
+
+https://api.slack.com/
+
+2) 우측 상단의 Your apps를 선택하면 아래처럼 "storybot"이 나옵니다. "storybot"을 선택하여 진입합니다. 
+
+<img width="1322" alt="image" src="https://user-images.githubusercontent.com/52392004/159929378-dca6dd8a-fb1e-4ac3-b9f8-fc5920b455be.png">
+
+3) 왼쪽 메뉴에서 [OAuth & Permissions]을 선택합니다. 
+
+![noname](https://user-images.githubusercontent.com/52392004/159929820-5ceb3d1d-9c29-4c1a-89c7-d3422a078ec9.png)
+
+4) [OAuth Tokens for Your Workspace]에서 새로 Token을 생성합니다. 
+
+
+![noname](https://user-images.githubusercontent.com/52392004/159930098-b8d23465-803f-4b40-b07e-dcb95ee38981.png)
+
+5) [Reinstall to Worksapce]를 선택하고 이후 나오는 화면에서 Allow를 선택합니다. 
+
+<img width="584" alt="image" src="https://user-images.githubusercontent.com/52392004/159930225-b1f3e4f9-3797-4711-9a17-d21e9b619b87.png">
+
+
+6) Slack의 해당 채팅방에서 "/invite @"을 입력하면 아래처럼 storybot이 노출 됩니다. 여기서 storybot을 등록하면 등록이 완료됩니다. 
+
+
+![noname](https://user-images.githubusercontent.com/52392004/159930730-32f1b693-5b6d-464e-a9a0-c76a3fc285da.png)
+
+
+
+만약 slack app의 token이 업데이트 되어서, token을 재발급 할 경우에 아래를 따릅니다. 
+
+<img width="1330" alt="image" src="https://user-images.githubusercontent.com/52392004/159929090-af6d90d4-0615-4846-992d-67f7cf504540.png">
+
+
+not_in_channel
