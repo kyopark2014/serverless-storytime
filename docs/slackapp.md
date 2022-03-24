@@ -91,9 +91,14 @@ function wait(){
 
 ## Troubleshooting for slackapp
 
+만약 slack app의 token이 업데이트 되어서, token을 재발급 할 경우에 아래를 따릅니다. 
+
 1) Slack api 사이트에 접속합니다. 
 
 https://api.slack.com/
+
+<img width="1330" alt="image" src="https://user-images.githubusercontent.com/52392004/159929090-af6d90d4-0615-4846-992d-67f7cf504540.png">
+
 
 2) 우측 상단의 Your apps를 선택하면 아래처럼 "storybot"이 나옵니다. "storybot"을 선택하여 진입합니다. 
 
@@ -118,11 +123,4 @@ https://api.slack.com/
 
 ![noname](https://user-images.githubusercontent.com/52392004/159930730-32f1b693-5b6d-464e-a9a0-c76a3fc285da.png)
 
-
-
-만약 slack app의 token이 업데이트 되어서, token을 재발급 할 경우에 아래를 따릅니다. 
-
-<img width="1330" alt="image" src="https://user-images.githubusercontent.com/52392004/159929090-af6d90d4-0615-4846-992d-67f7cf504540.png">
-
-
-not_in_channel
+만약 slack 실행시 "not_in_channel"이라는 에러 발생시 6번 과정을 다시 실행해 봅니다.
