@@ -97,8 +97,6 @@ function wait(){
 
 https://api.slack.com/
 
-<img width="1330" alt="image" src="https://user-images.githubusercontent.com/52392004/159929090-af6d90d4-0615-4846-992d-67f7cf504540.png">
-
 
 2) 우측 상단의 Your apps를 선택하면 아래처럼 "storybot"이 나옵니다. "storybot"을 선택하여 진입합니다. 
 
