@@ -1,6 +1,6 @@
 # Slack으로 메시지 전송
 
-## Slack Webhook
+## Slack Api
 
 Slack의 대화방에 메시지를 전송하기 위해서는 Slack Token이 필요합니다. 
 
