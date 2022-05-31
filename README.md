@@ -134,7 +134,7 @@ Dashboard 작성을 위해 Amazon Grafana를 설정합니다.
 
 관련된 코드들은 아래를 참조 바랍니다. 
 
-[Lambda-upload](https://github.com/kyopark2014/serverless-storytime-for-upload)
+[Lambda-upload](https://github.com/kyopark2014/serverless-storytime/tree/main/serverless-storytime-for-upload)
 
 [Lambda-rekognition](https://github.com/kyopark2014/serverless-storytime-for-rekognition)
 
