@@ -1,11 +1,5 @@
 # 파일 업로드를 위한 Lambda
 
-본 저장소(Repository)를 통해 Simple Serverless Story Time ( https://github.com/kyopark2014/simple-serverless-storytime )의 Upload Lambda에 관련 코드를 관리하고자 합니다.
-
-전체적인 Serverless Architecture는 아래와 같습니다. 
-
-<img width="1195" alt="image" src="https://user-images.githubusercontent.com/52392004/154789870-4c21323d-6c01-4999-aac1-0119fdb71c02.png">
-
 사용자가 업로드한 컨텐츠는 RESTful API를 통해 API Gateway를 통해 전송되는데 이때 보안을 위해 https를 이용해 전달됩니다. 이후, Lambda를 통해 event에서 파일을 추출해서 S3에 저장하게 됩니다. 이후, Rekognition이 처리하기전에 Queuing을 하기 위해 JSON 형태의 event를 SQS에 전송합니다.
 
 
