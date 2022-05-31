@@ -122,6 +122,4 @@ Textract의 경우에 Rekognition보다 더 많은 텍스트를 추출할 수 �
 
 [Textract](https://github.com/kyopark2014/serverless-textextraction)
 
-### Plant UML
 
-https://github.com/kyopark2014/serverless-storytime/blob/main/docs/plantuml.md
