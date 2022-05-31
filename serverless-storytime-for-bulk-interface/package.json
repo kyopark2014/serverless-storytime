@@ -1,0 +1,23 @@
+{
+  "name": "serverless-storytime-for-bulk-interface",
+  "version": "1.0.0",
+  "description": "It is a lambda fuction for bulk interface api of storytime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyopark2014/serverless-storytime-for-bulk-interface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyopark2014/serverless-storytime-for-bulk-interface/issues"
+  },
+  "homepage": "https://github.com/kyopark2014/serverless-storytime-for-bulk-interface#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
