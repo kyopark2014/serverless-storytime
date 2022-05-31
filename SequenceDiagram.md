@@ -40,3 +40,8 @@ Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확�
 
 
 ![image](https://user-images.githubusercontent.com/52392004/157040424-6bca2c8c-c58d-4a53-aa72-73510374319e.png)
+
+
+## Plant UML
+
+https://github.com/kyopark2014/serverless-storytime/blob/main/docs/plantuml.md
