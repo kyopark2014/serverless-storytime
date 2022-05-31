@@ -138,7 +138,7 @@ Dashboard 작성을 위해 Amazon Grafana를 설정합니다.
 
 [Lambda-rekognition](https://github.com/kyopark2014/serverless-storytime/tree/main/serverless-storytime-for-rekognition)
 
-[Lambda-polly](https://github.com/kyopark2014/serverless-storytime-for-polly)
+[Lambda-polly](https://github.com/kyopark2014/serverless-storytime/tree/main/serverless-storytime-for-polly)
 
 [Lambda-retrieve](https://github.com/kyopark2014/serverless-storytime-for-retrieve)
 

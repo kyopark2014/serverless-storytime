@@ -1,11 +1,5 @@
 # serverless-storytime-for-polly
 
-본 저장소(Repository)를 통해 Simple Serverless Voice Book Creator ( https://github.com/kyopark2014/serverless-storytime )의 AWS Polly 관련된 코드를 관리하고자 합니다.
-
-전체적인 Serverless Architecture는 아래와 같습니다. 
-
-<img width="1195" alt="image" src="https://user-images.githubusercontent.com/52392004/154789870-4c21323d-6c01-4999-aac1-0119fdb71c02.png">
-
 Rekognition가 추출한 텍스트는 json형태로 전달되는데, 여기서 text를 추출하여 AWS Polly에서 Voice로 변환합니다. 생성된 mp3 음성파일은 S3에 저장되고 CloudFront를 통해 외부에 공유 될 수 있습니다. 완성된 URL 정보는 AWS SNS를 통하여 사용자에게 이메일로 전달됩니다. 
 
 ## Text Extraction (Post Processing)
