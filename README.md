@@ -62,7 +62,7 @@ Abnoral Case가 발생하여, Retrieve API로 status 확인시에 결과를 확�
 
 ## Modules
 
-1) [Lambda for upload 구현](https://github.com/kyopark2014/serverless-storytime/blob/main/docs/lambda-for-upload.md)
+1) [Lambda for upload 구현](https://github.com/kyopark2014/serverless-storytime/tree/main/serverless-storytime-for-upload)
  
 AWS Lambda를 이용해 파일을 업로드하는 코드를 Node.js를 이용해 구현 합니다.
 
