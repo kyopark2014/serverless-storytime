@@ -1,0 +1,22 @@
+{
+  "name": "serverless-storytime-for-retrieve",
+  "version": "1.0.0",
+  "description": "It is part of serverless storytime for lambda",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyopark2014/serverless-storytime-for-retrieve.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyopark2014/serverless-storytime-for-retrieve/issues"
+  },
+  "homepage": "https://github.com/kyopark2014/serverless-storytime-for-retrieve#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
