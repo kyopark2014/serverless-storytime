@@ -1,0 +1,22 @@
+{
+  "name": "serverless-storytime-for-polly",
+  "version": "1.0.0",
+  "description": "본 저장소(Repository)를 통해 Simple Serverless Voice Book Creator ( https://github.com/kyopark2014/serverless-storytime )의 AWS Polly 관련된 코드를 관리하고자 합니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyopark2014/serverless-storytime-for-polly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kyopark2014/serverless-storytime-for-polly/issues"
+  },
+  "homepage": "https://github.com/kyopark2014/serverless-storytime-for-polly#readme",
+  "dependencies": {
+    "path": "^0.12.7"
+  }
+}
