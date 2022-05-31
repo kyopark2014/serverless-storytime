@@ -97,10 +97,11 @@ Permission을 확인 후 [Review policy]를 선택합니다.
 아래와 같이 소스를 내려 받습니다.
  
 ```c
-$ git clone https://github.com/kyopark2014/serverless-storytime-for-upload
+$ git clone https://github.com/kyopark2014/serverless-storytime
+$ cd serverless-storytime-for-upload
 ```
 
-해당 repository에는 이미 압축된 파일이 있지만, 추후 수정시 폴더로 이동하여 압축을 합니다. 이때 압축 명령어는 아래와 같습니다.
+아래와 같이 압축을 합니다. 
 
 ```c
 $ zip -r deploy.zip *
