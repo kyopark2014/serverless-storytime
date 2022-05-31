@@ -1,10 +1,4 @@
-# simple-serverless-storytime-for-rekognition
-
-본 저장소(Repository)를 통해 Simple Serverless Voice Book Creator ( https://github.com/kyopark2014/simple-serverless-storytime )의 Rekognition과 관련된 코드를 관리하고자 합니다.
-
-전체적인 Serverless Architecture는 아래와 같습니다. 
-
-<img width="1195" alt="image" src="https://user-images.githubusercontent.com/52392004/154789870-4c21323d-6c01-4999-aac1-0119fdb71c02.png">
+# serverless-storytime-for-rekognition
 
 Rekognition에 전달될 event가 SQS를 통해 Lambda에 전달되면, Rekognition에 이미지에서 텍스트를 추출하도록 요청하게 됩니다. 
 추출된 JSON 형태의 데이터는 다시 SQS에 전송되어 Poly를 통해 음성 파일로 변환 됩니다. 
