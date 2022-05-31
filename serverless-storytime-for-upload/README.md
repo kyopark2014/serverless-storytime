@@ -1,4 +1,4 @@
-# simple-severless-storytime-upload
+# 파일 업로드를 위한 Lambda
 
 본 저장소(Repository)를 통해 Simple Serverless Story Time ( https://github.com/kyopark2014/simple-serverless-storytime )의 Upload Lambda에 관련 코드를 관리하고자 합니다.
 
