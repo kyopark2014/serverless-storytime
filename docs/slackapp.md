@@ -10,7 +10,10 @@ https://api.slack.com/apps?new_app=1
 
 아래에서 [From scratch]를 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157184256-3fd1c0dc-c8a5-48bb-a4c4-9e7603e4a8f4.png)
+
+![noname](https://user-images.githubusercontent.com/52392004/172061088-556796d8-14fc-4523-890d-7527ee954853.png)
+
+
 
 
 2) [Name app & choose workspace]에서 App Name으로 "storytimeBot"으로 입력하고, [Pick a workspace to develop your app in:] 에서 현재 사용하고 있는 Slack의 Workspace를 지정합니다. 여기서는 본 데모를 위해 "Storytime"이라는 workspace를 위해 생성 하였습니다. 
