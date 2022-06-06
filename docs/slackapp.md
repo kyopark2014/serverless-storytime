@@ -18,7 +18,10 @@ https://api.slack.com/apps?new_app=1
 
 2) [Name app & choose workspace]에서 App Name으로 "storybot"으로 입력하고, [Pick a workspace to develop your app in:] 에서 현재 사용하고 있는 Slack의 Workspace를 지정합니다. 여기서는 본 데모를 위해 "Storytime"이라는 workspace를 위해 생성 하였습니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157285816-58c80e97-80df-4696-8768-b8ad2d8a0b37.png)
+![noname](https://user-images.githubusercontent.com/52392004/172077887-b6271e2d-6dd8-4d79-a8a3-fa2aa0b84840.png)
+
+
+
 
 
 3) 왼쪽 메뉴에서 OAuth&Permission을 선택합니다. 
