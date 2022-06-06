@@ -71,23 +71,35 @@ https://api.slack.com/apps?new_app=1
 
 8) 복사한 Token은 [Lambda] - [Functions] - [labda-storytime-for-slack]의 [Configuration] - [Environment variables]로 이등해서 등록하여 사용하여야 합니다.
 
-![image](https://user-images.githubusercontent.com/52392004/157288467-cb25bb5b-de44-486a-939e-cd0b84c100ab.png)
+![noname](https://user-images.githubusercontent.com/52392004/172078353-0782a885-8e0b-4a60-98ad-ab29374222df.png)
+
+
+
 
 아래와 같이 "token"이라는 key로 등록합니다. 
-![noname](https://user-images.githubusercontent.com/52392004/157288667-ce95b61f-2694-4a03-8bce-e4d94e24228d.png)
+
+
+![noname](https://user-images.githubusercontent.com/52392004/172078413-b78a1e51-f92d-42c4-bdd7-314537fa21a6.png)
+
+
 
 소스에 토큰을 하드코딩하여 Github에 공유하면, Slack이 이를 확인하여 자동으로 해당 토큰을 정지합니다. 테스트 용도라도 토큰과 같은 중요한 정보는 Environment variable로 관리하는것이 좋습니다. 
 
 
 9) Slack의 "storytime" channel에서 아래와 같이 "/invite @storybot" 이라고 입력해서 chatbot을 등록 합니다. 
 
-<img width="638" alt="image" src="https://user-images.githubusercontent.com/52392004/157290277-00aabff5-b122-4aa9-80b7-a7a3d87ebd23.png">
+![noname](https://user-images.githubusercontent.com/52392004/172078756-b40b0874-e016-4012-9208-b4f814d0c2c8.png)
+
+
 
 
 10) storytime서버에 이미지를 전송하면 slat으로 아래처럼 전달되는지 확인 합니다. 
 
 
-![noname](https://user-images.githubusercontent.com/52392004/157291591-2d46f158-84a6-47f7-9798-384bee210c37.png)
+![noname](https://user-images.githubusercontent.com/52392004/172078684-2d7f6a72-4dd4-4b72-8df3-b7cd439f9b87.png)
+
+
+
 
 
 ## Troubleshooting for lambda
