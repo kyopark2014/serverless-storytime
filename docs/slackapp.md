@@ -32,25 +32,41 @@ https://api.slack.com/apps?new_app=1
 4) 아래로 스크롤하여 [Scopes] - [Bot Token Scopes]에서 [Add on OAuth Scope]를 선택합니다. 
 
 
-![image](https://user-images.githubusercontent.com/52392004/157287089-ac2d7110-17c8-4435-9bd1-072c320e340d.png)
+![noname](https://user-images.githubusercontent.com/52392004/172078038-6aefa76b-b001-49b5-a574-26bdb880c672.png)
+
 
 아래로 이동해 "Chat:write"을 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157287258-065ba58b-bad6-4d91-b313-f846030de49d.png)
+
+![noname](https://user-images.githubusercontent.com/52392004/172078059-17039824-c2c0-429d-ac57-e2fe47ffaafa.png)
+
+
+
 
 5) [OAuth Tokens for Your Workspace] 에서 [Install to Workspace]를 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157287472-097940ce-6cf7-4ba3-8f93-ffca0db11a85.png)
+![noname](https://user-images.githubusercontent.com/52392004/172078102-9eca1c48-a226-4a95-ba90-dac9e3245b95.png)
+
+
+
 
 
 6) [Allow] 를 선택합니다.
 
-![image](https://user-images.githubusercontent.com/52392004/157287660-0e27acea-4343-4efd-8b7a-200faba26fd5.png)
+![noname](https://user-images.githubusercontent.com/52392004/172078132-947e6b40-601b-4e08-bb1d-67e9324da694.png)
 
 
-7) 아래처럼 화면이 전환되면 [Bot User OAuth Token]을 복사 합니다. 
 
-![noname](https://user-images.githubusercontent.com/52392004/157288132-d4bec3fb-c13e-4aed-b6ed-d773d190b659.png)
+
+
+7) 아래처럼 화면이 전환되면 [Copy]를 선택해서, [Bot User OAuth Token]을 복사 합니다. 
+
+
+![noname](https://user-images.githubusercontent.com/52392004/172078210-283c786f-8910-4175-ac4f-d1b025f947bb.png)
+
+
+
+
 
 
 8) 복사한 Token은 [Lambda] - [Functions] - [labda-storytime-for-slack]의 [Configuration] - [Environment variables]로 이등해서 등록하여 사용하여야 합니다.
