@@ -26,8 +26,7 @@ https://api.slack.com/apps?new_app=1
 
 3) 왼쪽 메뉴에서 OAuth&Permission을 선택합니다. 
 
-![image](https://user-images.githubusercontent.com/52392004/157286724-79aaa7f6-d82c-45e3-bd95-4ef80d108aac.png)
-
+![noname](https://user-images.githubusercontent.com/52392004/172077932-8ba0288b-3450-432f-8f49-08e74db78b89.png)
 
 
 4) 아래로 스크롤하여 [Scopes] - [Bot Token Scopes]에서 [Add on OAuth Scope]를 선택합니다. 
