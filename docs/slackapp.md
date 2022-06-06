@@ -107,9 +107,14 @@ https://api.slack.com/apps?new_app=1
 Node.js로 코드 구현하여 Lambda에 포팅하여 테스트시, Incoming Webhook과 Slack apps 방식 모두에서 정상적으로 메시지를 수신하지 못하는 현상이 발생하였습니다. 로그 분석을 통해 원인이 API 호출후 응답을 받기 전에 Lambda가 종료됨으로 인하여 API 호출이 완료되지 않아서 Slack에서 중지한것으로 보여집니다. 관련하여 Lambda 사용시 javascript event loop에 대한 [posting](https://stackoverflow.com/questions/31633912/how-to-wait-for-async-actions-inside-aws-lambda)을 참조하여, 아래처럼 Lambda를 강제로 종료시키지 않는 방법으로 해결하였습니다. 
 
 ```java
-function wait(){
+  function wait(){
     return new Promise((resolve, reject) => {
-        setTimeout(() => resolve("hello"), 2000)
+      if(!isCompleted) {
+        setTimeout(() => resolve("wait..."), 1000)
+      }
+      else {
+        setTimeout(() => resolve("done..."), 0)
+      }
     });
   }
   console.log(await wait());
@@ -117,9 +122,6 @@ function wait(){
   console.log(await wait());
   console.log(await wait());
   console.log(await wait());
-  console.log(await wait());
-  
-  return 'exiting'
 ```
 
 ## Troubleshooting for slackapp
